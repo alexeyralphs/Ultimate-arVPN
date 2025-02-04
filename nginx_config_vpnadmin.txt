@@ -1,0 +1,53 @@
+server {
+	listen 8181;
+	listen [::]:8181;
+
+	root /var/www/vpnadmin;
+	index index.php;
+
+	server_name $WEB_ADDRESS www.$WEB_ADDRESS;
+
+	client_max_body_size 100m;
+
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header X-Forwarded-Proto $scheme;
+	proxy_cache_bypass                 $http_upgrade;
+	proxy_set_header Upgrade           $http_upgrade;
+	proxy_set_header Connection        "upgrade"; 
+	proxy_set_header X-Forwarded-Host  $host;
+	proxy_set_header X-Forwarded-Port  $server_port;
+	proxy_redirect off;
+	proxy_connect_timeout 60s;
+	proxy_send_timeout 60s;
+	proxy_read_timeout 60s;
+	send_timeout 60s;
+
+	auth_basic "Restricted Access";
+	auth_basic_user_file /etc/nginx/vpnadmin.htpasswd;
+
+	location / {
+		try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	location ~ \.php$ {
+		fastcgi_pass unix:/var/run/vpnadmin.sock;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+
+	location ~ /\. {
+		deny all;
+		return 404;
+	}
+
+	location ~* \.(sh|pl|py|cgi|conf|config|htaccess|htpasswd|log)$ {
+		deny all;
+		return 404;
+	}
+
+	location /wireguard/ {
+		proxy_pass http://127.0.0.1:51821/;
+	}
+}
