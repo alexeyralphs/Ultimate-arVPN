@@ -103,85 +103,29 @@ if [[ -z "$func_nginx_config_create" ]]; then
 fi
 source <(echo "$func_nginx_config_create")
 
-wg-easy_install() {
-    docker stop wg-easy 2> /dev/null
-    docker rm wg-easy 2> /dev/null
-    docker run -d \
-    	--name=wg-easy \
-    	-e WG_HOST=$WEB_ADDRESS \
-        -e WG_PORT=8080 \
-    	-e WG_DEFAULT_ADDRESS=10.0.0.x \
-    	-v ~/.wg-easy:/etc/wireguard \
-        -p 8080:51820/udp \
-    	-p 51821:51821/tcp \
-    	--cap-add=NET_ADMIN \
-    	--cap-add=SYS_MODULE \
-    	--sysctl="net.ipv4.conf.all.src_valid_mark=1" \
-    	--sysctl="net.ipv4.ip_forward=1" \
-    	--restart unless-stopped \
-    	weejewel/wg-easy
+# wg-easy_install() {}
+func_wg-easy_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/wg-easy_install.sh)
+if [[ -z "$func_wg-easy_install" ]]; then
+    echo "Error in func_wg-easy_install!" >&2
+    exit 1
+fi
+source <(echo "$func_wg-easy_install")
 
-    if docker ps | grep -q "wg-easy"; then
-        echo "${BLUE_BG}${BLACK_FG}wg-easy container is running. Continuing...${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}wg-easy container not found. Exiting...${RESET}"
-        exit 1
-    fi
+# outline_install() {}
+func_outline_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/outline_install.sh)
+if [[ -z "$func_outline_install" ]]; then
+    echo "Error in func_outline_install!" >&2
+    exit 1
+fi
+source <(echo "$func_outline_install")
 
-    echo "Wireguard GUI: http://$WEB_ADDRESS:8181/wireguard | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
-}
-
-outline_install() {
-    wget -q --inet4-only https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh
-    yes | sudo bash install_server.sh --hostname $WEB_ADDRESS --keys-port 8081 > outline_manager_output.txt
-    OUTLINE_MANAGER_KEY=$(sudo grep -oE '\{"api.*"}' outline_manager_output.txt) # Создаем переменную с ключом для подключения к Outline Manager
-    sudo rm install_server.sh -f
-    sudo rm outline_manager_output.txt -f
-
-    if docker ps | grep -q "watchtower"; then
-        echo "${BLUE_BG}${BLACK_FG}watchtower container is running. Continuing...${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}watchtower container not found. Exiting...${RESET}"
-        exit 1
-    fi
-
-    if docker ps | grep -q "outline"; then
-        echo "${BLUE_BG}${BLACK_FG}outline shadowbox container is running. Continuing...${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}outline shadowbox container not found. Exiting...${RESET}"
-        exit 1
-    fi
-    
-    echo "Outline Web-GUI: http://$WEB_ADDRESS:8181/outline | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
-    echo "Outline Manager key: $OUTLINE_MANAGER_KEY" | sudo tee -a credentials.txt > /dev/null
-
-    sudo mkdir -vp /var/www/vpnadmin/outline/scripts
-    sudo mkdir -vp /var/www/vpnadmin/outline/images
-    sudo mkdir -vp /var/www/vpnadmin/outline/css
-    sudo mkdir -vp /var/www/vpnadmin/outline/js
-
-    sudo echo $OUTLINE_MANAGER_KEY > /var/www/vpnadmin/outline/outline_manager_key.php
-    sudo echo $WEB_ADDRESS > /var/www/vpnadmin/outline/web-address.php
-
-    curl -s -o /var/www/vpnadmin/outline/images/outline-logo-short.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/images/outline-logo-short.svg
-    curl -s -o /var/www/vpnadmin/outline/css/styles.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/styles.css
-    curl -s -o /var/www/vpnadmin/outline/images/logout_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/logout_button.svg
-    curl -s -o /var/www/vpnadmin/outline/images/outline_title.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/images/outline_title.svg
-    curl -s -o /var/www/vpnadmin/outline/images/copy_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/copy_button.svg
-    curl -s -o /var/www/vpnadmin/outline/images/delete_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/delete_button.svg
-    curl -s -o /var/www/vpnadmin/outline/js/js.js https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/js/js.js
-    curl -s -o /var/www/vpnadmin/outline/index.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/index.html
-    curl -s -o /var/www/vpnadmin/outline/scripts/regenerate_outline_manager_key.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/regenerate_outline_manager_key.php
-    curl -s -o /var/www/vpnadmin/outline/scripts/new_client_key.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/new_client_key.php
-    curl -s -o /var/www/vpnadmin/outline/scripts/get_client_key_list.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/get_client_key_list.php
-    curl -s -o /var/www/vpnadmin/outline/scripts/remove_client.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/remove_client.php
-    curl -s -o /var/www/vpnadmin/outline/scripts/regenerate_outline_manager_key.sh https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/regenerate_outline_manager_key.sh  
-}
-
-admin_user_permissions() {
-    sudo chown -R vpnadmin:vpnadmin /var/www/vpnadmin
-    sudo chmod -R 755 /var/www/vpnadmin
-}
+admin_user_permissions() {}
+func_admin_user_permissions=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/admin_user_permissions.sh)
+if [[ -z "$func_admin_user_permissions" ]]; then
+    echo "Error in func_admin_user_permissions!" >&2
+    exit 1
+fi
+source <(echo "$func_admin_user_permissions")
 
 apt_install_initial
 
