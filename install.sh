@@ -236,7 +236,7 @@ php_sock_create() {
 }
 
 nginx_config_create() {
-    curl -s -o /etc/nginx/sites-available/vpnadmin https://it.alexeyralphs.com/ultimate_arvpn/downloads/nginx_config_vpnadmin.txt
+    curl -s -o /etc/nginx/sites-available/vpnadmin https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.txt
     sudo sed -i "s/\$WEB_ADDRESS/$WEB_ADDRESS/g" /etc/nginx/sites-available/vpnadmin
     sudo ln -s /etc/nginx/sites-available/vpnadmin /etc/nginx/sites-enabled/
     sudo systemctl restart nginx
