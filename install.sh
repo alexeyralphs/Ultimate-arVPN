@@ -6,177 +6,70 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 # apt_install_initial() {}
-source <(curl -s https://example.com/functions.sh)
+func_apt_install_initial=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/apt_install_initial.sh)
+if [[ -z "$func_apt_install_initial" ]]; then
+    echo "Error in func_apt_install_initial!" >&2
+    exit 1
+fi
+source <(echo "$func_apt_install_initial")
 
-check_ipv4() {
-    IS_IPV4_AVAILABLE=$(curl -s -o /dev/null -w "%{http_code}\n" eth0.me)
+# check_ipv4() {}
+func_check_ipv4=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/check_ipv4.sh)
+if [[ -z "$func_check_ipv4" ]]; then
+    echo "Error in func_check_ipv4!" >&2
+    exit 1
+fi
+source <(echo "$func_check_ipv4")
 
-    if [ "$IS_IPV4_AVAILABLE" == "000" ]; then
-    	echo "${BLUE_BG}${BLACK_FG}IPv4 is not available. Exiting.${RESET}"
-        exit 1
-    else
-        echo "${BLUE_BG}${BLACK_FG}IPv4 is available. Continuing.${RESET}"
-	    MAIN_IP=$(curl -s eth0.me)
-    fi
-}
+# check_answer_hostname() {}
+func_check_answer_hostname=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/check_answer_hostname.sh)
+if [[ -z "$func_check_answer_hostname" ]]; then
+    echo "Error in func_check_answer_hostname!" >&2
+    exit 1
+fi
+source <(echo "$func_check_answer_hostname")
 
-check_answer_hostname() {
-	if [ "$1" == "y" ] || [ "$1" == "n" ]; then
-		return 0
-	else
-		return 1
-	fi
-}
+# validate_fqdn() {}
+func_validate_fqdn=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/validate_fqdn.sh)
+if [[ -z "$func_validate_fqdn" ]]; then
+    echo "Error in func_validate_fqdn!" >&2
+    exit 1
+fi
+source <(echo "$func_validate_fqdn")
 
-validate_fqdn() {
-    local fqdn="$1"
-    
-    # Check for the overall length of the FQDN
-    if [[ ${#fqdn} -gt 253 ]]; then
-        return 1
-    fi
 
-    # Check for invalid characters and labels
-    if [[ ! "$fqdn" =~ ^([a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$ ]]; then
-        return 1
-    fi
-    
-    # Check each label length
-    IFS='.' read -ra labels <<< "$fqdn"
-    for label in "${labels[@]}"; do
-        if [[ ${#label} -gt 63 || ${#label} -lt 1 ]]; then
-            return 1
-        fi
-    done
-    
-    # Ensure the FQDN does not start or end with a hyphen
-    if [[ "$fqdn" =~ ^- || "$fqdn" =~ -$ ]]; then
-        return 1
-    fi
+# set_web_address() {}
+func_set_web_address=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/set_web_address.sh)
+if [[ -z "$func_set_web_address" ]]; then
+    echo "Error in func_set_web_address!" >&2
+    exit 1
+fi
+source <(echo "$func_set_web_address")
 
-    return 0
-}
+# apt_install_requirements() {}
+func_apt_install_requirements=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/apt_install_requirements.sh)
+if [[ -z "$func_apt_install_requirements" ]]; then
+    echo "Error in func_apt_install_requirements!" >&2
+    exit 1
+fi
+source <(echo "$func_apt_install_requirements")
 
-set_web_address() {
-    while true; do
-        read -p "Do you want to be able to connect to the server using your own domain name? ${BLUE_BG}${BLACK_FG}For example: my-server.com${RESET}:
-        (y/n) " ANSWER_HOSTNAME
-        ANSWER_HOSTNAME=$(echo "$ANSWER_HOSTNAME" | tr -d ' ')
+# apt_install_webserver() {}
+func_apt_install_webserver=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/apt_install_webserver.sh)
+if [[ -z "$func_apt_install_webserver" ]]; then
+    echo "Error in func_apt_install_webserver!" >&2
+    exit 1
+fi
+source <(echo "$func_apt_install_webserver")
 
-        if check_answer_hostname "$ANSWER_HOSTNAME"; then
-            break
-        else
-            echo "Incorrect answer. Please enter '${BLUE_BG}${BLACK_FG}y${RESET}' or '${BLUE_BG}${BLACK_FG}n${RESET}'."
-            sleep 1
-        fi
-    done
+# apt_install_docker() {}
+func_apt_install_docker=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/apt_install_docker.sh)
+if [[ -z "$func_apt_install_docker" ]]; then
+    echo "Error in func_apt_install_docker!" >&2
+    exit 1
+fi
+source <(echo "$func_apt_install_docker")
 
-    if [ "$ANSWER_HOSTNAME" == "y" ]; then
-        while true; do
-            read -p "Enter the domain name you're going to use ${BLUE_BG}${BLACK_FG}(Don't forget to set $MAIN_IP as an A-Record value)${RESET}:
-            ===> " NEW_HOSTNAME
-            NEW_HOSTNAME=$(echo "$NEW_HOSTNAME" | tr -d ' ')
-
-            if [ -n "$NEW_HOSTNAME" ] && validate_fqdn "$NEW_HOSTNAME"; then
-                echo "Great, we'll use the ${BLUE_BG}${BLACK_FG}$NEW_HOSTNAME${RESET} domain name."
-                WEB_ADDRESS="$NEW_HOSTNAME"
-                break
-            else
-                echo "Hostname cannot be empty and must be a valid FQDN. Please enter a valid domain name. ${BLUE_BG}${BLACK_FG}For example: my-server.com${RESET}"
-                sleep 1
-            fi
-        done
-    elif [ "$ANSWER_HOSTNAME" == "n" ]; then
-        echo "Okie, then we'll use the IP address ${BLUE_BG}${BLACK_FG}$MAIN_IP${RESET}."
-        WEB_ADDRESS="$MAIN_IP"
-    fi
-}
-
-apt_install_requirements() {
-    sudo apt -o Dpkg::Options::="--force-confold" upgrade -y
-
-    sudo apt -o Dpkg::Options::="--force-confold" install fail2ban -y
-    sudo systemctl enable fail2ban
-    sudo systemctl start fail2ban
-    if command -v fail2ban-client &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}fail2ban installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}fail2ban not found, exiting...${RESET}"
-        exit 1
-    fi
-}
-
-apt_install_webserver() {
-    sudo apt -o Dpkg::Options::="--force-confold" install nginx -y
-    if command -v nginx &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}nginx installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}nginx not found, exiting...${RESET}"
-        exit 1
-    fi
-
-    sudo apt -o Dpkg::Options::="--force-confold" install php-fpm -y
-    if ps aux | grep -v grep | grep -q php-fpm; then
-        echo "${BLUE_BG}${BLACK_FG}php-fpm is running.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}php-fpm not found, exiting...${RESET}"
-        exit 1
-    fi
-
-    sudo apt -o Dpkg::Options::="--force-confold" install apache2-utils -y
-    if command -v htpasswd &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}apache2-utils installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}apache2-utils not found, exiting...${RESET}"
-        exit 1
-    fi
-
-    sudo apt -o Dpkg::Options::="--force-confold" install php-curl -y
-    if php -m | grep -q curl; then
-        echo "${BLUE_BG}${BLACK_FG}php-curl installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}php-curl not found, exiting...${RESET}"
-        exit 1
-    fi
-
-    sudo rm /etc/nginx/sites-enabled/default 2>/dev/null
-    sudo rm /etc/nginx/sites-available/default 2>/dev/null
-    sudo systemctl enable nginx
-    sudo systemctl start nginx
-}
-
-apt_install_docker() {
-    sudo mkdir -vp /etc/docker/
-    mv /etc/docker/daemon.json /etc/docker/daemon.json-backup-$(date +"%Y%m%d") 2>/dev/null
-
-sudo tee /etc/docker/daemon.json > /dev/null <<'ENDOFFILE'
-{
-    "registry-mirrors": [
-        "https://dockerhub.timeweb.cloud",
-        "https://dockerhub1.beget.com",
-        "https://mirror.gcr.io"
-    ]
-}
-ENDOFFILE
-sudo systemctl restart docker
-
-    sudo apt -o Dpkg::Options::="--force-confold" install ca-certificates -y
-    sudo apt -o Dpkg::Options::="--force-confold" install gnupg -y
-    sudo apt -o Dpkg::Options::="--force-confold" install lsb-release -y
-    sudo apt -o Dpkg::Options::="--force-confold" install software-properties-common -y
-
-    if ! command -v docker &>/dev/null; then
-        sudo curl -s https://get.docker.com | sudo sed '/sleep 20/d' | sudo sh -f
-    elif ! command -v docker &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}Docker CE is not installed. Installing docker.io...${RESET}"
-        sudo apt -o Dpkg::Options::="--force-confold" install docker.io -y
-    elif command -v docker &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}docker installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}docker not found, exiting...${RESET}"
-        exit 1
-    fi
-}
 
 password_generator() {
     SYMBOLS=""
