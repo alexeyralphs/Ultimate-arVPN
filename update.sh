@@ -5,6 +5,8 @@ GREEN_BG=$(tput setab 42)
 BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
+echo "${BLUE_BG}${BLACK_FG}Update is started!${RESET}"
+
 sudo apt update
 
 sudo apt -o Dpkg::Options::="--force-confold" upgrade -y
@@ -28,3 +30,5 @@ source <(echo "$func_admin_user_permissions")
 outline_update
 
 admin_user_permissions
+
+echo "${BLUE_BG}${BLACK_FG}Update is finished. Have a great day!${RESET}"
