@@ -14,6 +14,15 @@
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
+		<header>
+			<div class="manageWrapper">
+				<img src="images/outline_title.svg" alt="Outline Title" height="40">
+				<button class="button logout" onclick="resetAuth()">
+				<img src="images/logout_button.svg" alt="Logout Button" height="20">
+				Logout
+				</button>
+			</div>
+		</header>
 		<div class="container">
 			<div id="createNewClientPopup" class="popupWrapper" style="display: none;" onclick="closePopup(event)">
 				<div class="popup">
@@ -21,13 +30,6 @@
 					<input type="text" id="clientNameInput" class="input" placeholder="Enter name">
 					<button class="button" id="createClientButton" disabled>Create</button>
 				</div>
-			</div>
-			<div class="manageWrapper">
-				<img src="images/outline_title.svg" alt="Outline Title" height="40">
-				<button class="button logout" onclick="resetAuth()">
-				<img src="images/logout_button.svg" alt="Logout Button" height="20">
-				Logout
-				</button>
 			</div>
 			<div class="wrapper">
 				<div class="manageWrapper">
