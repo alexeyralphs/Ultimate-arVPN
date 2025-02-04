@@ -9,11 +9,16 @@
 		<title>Outline</title>
 		<meta charset="UTF-8" />
 		<!---->
+		<!---->
+		<!---->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="images/outline-logo-short.svg" />
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
+		<!---->
+		<!---->
+		<!---->
 		<header>
 			<div class="manageWrapper">
 				<img src="images/outline_title.svg" alt="Outline Title" height="40">
@@ -23,6 +28,9 @@
 				</button>
 			</div>
 		</header>
+		<!---->
+		<!---->
+		<!---->
 		<div class="container">
 			<div id="createNewClientPopup" class="popupWrapper" style="display: none;" onclick="closePopup(event)">
 				<div class="popup">
@@ -30,16 +38,6 @@
 					<input type="text" id="clientNameInput" class="input" placeholder="Enter name">
 					<button class="button" id="createClientButton" disabled>Create</button>
 				</div>
-			</div>
-			<div class="wrapper">
-				<div class="manageWrapper">
-					<h1>Outline Manager key:</h1>
-					<button class="button buttonDelete buttonRegenerate" onclick="createManagerKey()">Regenerate</button>
-				</div>
-				<button class="button buttonCode" onclick="copyToClipboard(jsonString)">
-				<span id="jsonStringDisplay"></span>
-				<img src="images/copy_button.svg" alt="Copy Button" height="20">
-				</button>
 			</div>
 			<div class="listWrapper">
 				<div class="titleWrapper">
@@ -54,5 +52,17 @@
 			const jsonString =  `<?php echo ($keyContent); ?>`;
 		</script>
 		<script src="js/js.js"></script>
+		<footer>
+			<div class="wrapper">
+				<div class="manageWrapper">
+					<h1>Outline Manager key:</h1>
+					<button class="button buttonDelete buttonRegenerate" onclick="createManagerKey()">Regenerate</button>
+				</div>
+				<button class="button buttonCode" onclick="copyToClipboard(jsonString)">
+				<span id="jsonStringDisplay"></span>
+				<img src="images/copy_button.svg" alt="Copy Button" height="20">
+				</button>
+			</div>
+		</footer>
 	</body>
 </html>
