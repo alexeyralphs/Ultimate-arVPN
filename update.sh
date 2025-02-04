@@ -11,6 +11,8 @@ sudo apt update
 
 sudo apt -o Dpkg::Options::="--force-confold" upgrade -y
 
+echo "${BLUE_BG}${BLACK_FG}Updating files...${RESET}"
+
 # outline_update() {}
 func_outline_update=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/outline_update.sh)
 if [[ -z "$func_outline_update" ]]; then
