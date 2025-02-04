@@ -103,13 +103,13 @@ if [[ -z "$func_nginx_config_create" ]]; then
 fi
 source <(echo "$func_nginx_config_create")
 
-# wg-easy_install() {}
-func_wg-easy_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/wg-easy_install.sh)
-if [[ -z "$func_wg-easy_install" ]]; then
-    echo "Error in func_wg-easy_install!" >&2
+# wg_easy_install() {}
+func_wg_easy_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/wg_easy_install.sh)
+if [[ -z "$func_wg_easy_install" ]]; then
+    echo "Error in func_wg_easy_install!" >&2
     exit 1
 fi
-source <(echo "$func_wg-easy_install")
+source <(echo "$func_wg_easy_install")
 
 # outline_install() {}
 func_outline_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/outline_install.sh)
@@ -151,7 +151,7 @@ php_sock_create
 
 nginx_config_create
 
-wg-easy_install
+wg_easy_install
 
 outline_install
 

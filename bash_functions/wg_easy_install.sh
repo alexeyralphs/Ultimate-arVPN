@@ -5,7 +5,7 @@ GREEN_BG=$(tput setab 42)
 BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
-wg-easy_install() {
+wg_easy_install() {
     docker stop wg-easy 2> /dev/null
     docker rm wg-easy 2> /dev/null
     docker run -d \
