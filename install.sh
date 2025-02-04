@@ -119,7 +119,7 @@ if [[ -z "$func_outline_install" ]]; then
 fi
 source <(echo "$func_outline_install")
 
-admin_user_permissions() {}
+# admin_user_permissions() {}
 func_admin_user_permissions=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/admin_user_permissions.sh)
 if [[ -z "$func_admin_user_permissions" ]]; then
     echo "Error in func_admin_user_permissions!" >&2
