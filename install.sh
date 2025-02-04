@@ -71,23 +71,13 @@ fi
 source <(echo "$func_apt_install_docker")
 
 
-password_generator() {
-    SYMBOLS=""
-
-    for SYMBOL in {A..Z} {a..z} {0..9}
-        do SYMBOLS=$SYMBOLS$SYMBOL
-    done
-
-    SYMBOLS=$SYMBOLS'!@#$%&*()?/\[]{}-+_=<>.,'
-
-    PWD_LENGTH=16
-    PASSWORD=""
-    RANDOM=256
-
-    for i in `seq 1 $PWD_LENGTH`
-        do PASSWORD=$PASSWORD${SYMBOLS:$(expr $RANDOM % ${#SYMBOLS}):1}
-    done
-}
+# password_generator() {}
+func_password_generator=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/password_generator.sh)
+if [[ -z "$func_password_generator" ]]; then
+    echo "Error in func_password_generator!" >&2
+    exit 1
+fi
+source <(echo "$func_password_generator")
 
 admin_user_create() {
     sudo htpasswd -c -b /etc/nginx/vpnadmin.htpasswd vpnadmin $PASSWORD
