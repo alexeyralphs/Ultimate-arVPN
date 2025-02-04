@@ -301,10 +301,10 @@ outline_install() {
     sudo echo $OUTLINE_MANAGER_KEY > /var/www/vpnadmin/outline/outline_manager_key.php
     sudo echo $WEB_ADDRESS > /var/www/vpnadmin/outline/web-address.php
 
-    curl -s -o /var/www/vpnadmin/outline/images/outline-logo-short.svg https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/outline-logo-short.svg
+    curl -s -o /var/www/vpnadmin/outline/images/outline-logo-short.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/images/outline-logo-short.svg
     curl -s -o /var/www/vpnadmin/outline/styles.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/styles.css
     curl -s -o /var/www/vpnadmin/outline/images/logout_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/logout_button.svg
-    curl -s -o /var/www/vpnadmin/outline/images/outline_title.svg https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/outline_title.svg
+    curl -s -o /var/www/vpnadmin/outline/images/outline_title.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/images/outline_title.svg
     curl -s -o /var/www/vpnadmin/outline/images/copy_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/copy_button.svg
     curl -s -o /var/www/vpnadmin/outline/images/delete_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/delete_button.svg
     curl -s -o /var/www/vpnadmin/outline/outline_scripts.js https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/outline_scripts_js.txt
