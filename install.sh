@@ -230,13 +230,13 @@ admin_user_create() {
 php_sock_create() {
     PHP_VERSION=$(sudo php -v | head -n 1 | grep "PHP" | awk '{print $2}' | cut -c 1-3)
 
-    sudo curl -s -o /etc/php/$PHP_VERSION/fpm/pool.d/vpnadmin.conf https://it.alexeyralphs.com/ultimate_arvpn/downloads/php-fpm_vpnadmin_conf.txt
+    sudo curl -s -o /etc/php/$PHP_VERSION/fpm/pool.d/vpnadmin.conf https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/php-fpm_vpnadmin.conf
 
     sudo systemctl restart php$PHP_VERSION-fpm
 }
 
 nginx_config_create() {
-    curl -s -o /etc/nginx/sites-available/vpnadmin https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.txt
+    curl -s -o /etc/nginx/sites-available/vpnadmin https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.conf
     sudo sed -i "s/\$WEB_ADDRESS/$WEB_ADDRESS/g" /etc/nginx/sites-available/vpnadmin
     sudo ln -s /etc/nginx/sites-available/vpnadmin /etc/nginx/sites-enabled/
     sudo systemctl restart nginx
@@ -302,7 +302,7 @@ outline_install() {
     sudo echo $WEB_ADDRESS > /var/www/vpnadmin/outline/web-address.php
 
     curl -s -o /var/www/vpnadmin/outline/images/outline-logo-short.svg https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/outline-logo-short.svg
-    curl -s -o /var/www/vpnadmin/outline/styles.css https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/styles_css.txt
+    curl -s -o /var/www/vpnadmin/outline/styles.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/styles.css
     curl -s -o /var/www/vpnadmin/outline/images/logout_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/logout_button.svg
     curl -s -o /var/www/vpnadmin/outline/images/outline_title.svg https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/outline_title.svg
     curl -s -o /var/www/vpnadmin/outline/images/copy_button.svg https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/images/copy_button.svg
