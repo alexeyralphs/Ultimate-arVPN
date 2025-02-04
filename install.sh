@@ -39,7 +39,6 @@ if [[ -z "$func_validate_fqdn" ]]; then
 fi
 source <(echo "$func_validate_fqdn")
 
-
 # set_web_address() {}
 func_set_web_address=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/set_web_address.sh)
 if [[ -z "$func_set_web_address" ]]; then
@@ -72,7 +71,6 @@ if [[ -z "$func_apt_install_docker" ]]; then
 fi
 source <(echo "$func_apt_install_docker")
 
-
 # password_generator() {}
 func_password_generator=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/password_generator.sh)
 if [[ -z "$func_password_generator" ]]; then
@@ -81,31 +79,29 @@ if [[ -z "$func_password_generator" ]]; then
 fi
 source <(echo "$func_password_generator")
 
-admin_user_create() {
-    sudo htpasswd -c -b /etc/nginx/vpnadmin.htpasswd vpnadmin $PASSWORD
-    sudo useradd -m vpnadmin
-    echo "vpnadmin:$PASSWORD" | sudo chpasswd
-    usermod -aG sudo vpnadmin
+# admin_user_create() {}
+func_admin_user_create=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/admin_user_create.sh)
+if [[ -z "$func_admin_user_create" ]]; then
+    echo "Error in func_admin_user_create!" >&2
+    exit 1
+fi
+source <(echo "$func_admin_user_create")
 
-    sudo sed -i '/^vpnadmin /d' /etc/sudoers
-    echo "vpnadmin ALL=(ALL) NOPASSWD: /usr/bin/wget, /bin/bash, /bin/grep, /bin/rm, /usr/bin/tee, /bin/cat" | sudo tee -a /etc/sudoers
-}
+# php_sock_create() {}
+func_php_sock_create=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/php_sock_create.sh)
+if [[ -z "$func_php_sock_create" ]]; then
+    echo "Error in func_php_sock_create!" >&2
+    exit 1
+fi
+source <(echo "$func_php_sock_create")
 
-php_sock_create() {
-    PHP_VERSION=$(sudo php -v | head -n 1 | grep "PHP" | awk '{print $2}' | cut -c 1-3)
-
-    sudo curl -s -o /etc/php/$PHP_VERSION/fpm/pool.d/vpnadmin.conf https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/php-fpm_vpnadmin.conf
-
-    sudo systemctl restart php$PHP_VERSION-fpm
-}
-
-nginx_config_create() {
-    curl -s -o /etc/nginx/sites-available/vpnadmin https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.conf
-    sudo sed -i "s/\$WEB_ADDRESS/$WEB_ADDRESS/g" /etc/nginx/sites-available/vpnadmin
-    sudo ln -s /etc/nginx/sites-available/vpnadmin /etc/nginx/sites-enabled/
-    sudo systemctl restart nginx
-    sudo mkdir -vp /var/www/vpnadmin
-}
+# nginx_config_create() {}
+func_nginx_config_create=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/nginx_config_create.sh)
+if [[ -z "$func_nginx_config_create" ]]; then
+    echo "Error in func_nginx_config_create!" >&2
+    exit 1
+fi
+source <(echo "$func_nginx_config_create")
 
 wg-easy_install() {
     docker stop wg-easy 2> /dev/null
