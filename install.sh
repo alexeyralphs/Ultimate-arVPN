@@ -311,7 +311,7 @@ outline_install() {
     curl -s -o /var/www/vpnadmin/outline/index.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/index.html
     curl -s -o /var/www/vpnadmin/outline/scripts/regenerate_outline_manager_key.php https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/regenerate_outline_manager_key_php.txt
     curl -s -o /var/www/vpnadmin/outline/scripts/new_client_key.php https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/new_client_key_php.txt
-    curl -s -o /var/www/vpnadmin/outline/scripts/get_client_key_list.php https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/get_client_key_list_php.txt
+    curl -s -o /var/www/vpnadmin/outline/scripts/get_client_key_list.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/get_client_key_list.php
     curl -s -o /var/www/vpnadmin/outline/scripts/remove_client.php https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/remove_client_php.txt
     curl -s -o /var/www/vpnadmin/outline/scripts/regenerate_outline_manager_key.sh https://it.alexeyralphs.com/ultimate_arvpn/downloads/outline/regenerate_outline_manager_key_sh.txt  
 }
