@@ -42,4 +42,23 @@ apt_install_webserver() {
     sudo rm /etc/nginx/sites-available/default 2>/dev/null
     sudo systemctl enable nginx
     sudo systemctl start nginx
+
+    sudo apt -o Dpkg::Options::="--force-confold" install certbot -y
+    sudo apt -o Dpkg::Options::="--force-confold" install python3-certbot-nginx -y
+    if command -v certbot &>/dev/null; then
+        echo "${BLUE_BG}${BLACK_FG}certbot installed.${RESET}"
+    else
+        echo "${BLUE_BG}${BLACK_FG}certbot not found, exiting...${RESET}"
+        exit 1
+    fi
+
+    sudo apt -o Dpkg::Options::="--force-confold" install openssl -y
+    if command -v openssl &>/dev/null; then
+        echo "${BLUE_BG}${BLACK_FG}openssl installed.${RESET}"
+    else
+        echo "${BLUE_BG}${BLACK_FG}openssl not found, exiting...${RESET}"
+        exit 1
+    fi
+
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
 }

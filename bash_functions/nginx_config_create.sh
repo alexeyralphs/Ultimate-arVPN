@@ -11,4 +11,6 @@ nginx_config_create() {
     sudo ln -s /etc/nginx/sites-available/vpnadmin /etc/nginx/sites-enabled/
     sudo systemctl restart nginx
     sudo mkdir -vp /var/www/vpnadmin
+
+    curl -s -o /var/www/vpnadmin/index.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/index.html
 }
