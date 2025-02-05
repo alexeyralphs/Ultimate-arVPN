@@ -59,7 +59,7 @@ function createManagerKey() {
 async function createClientKey(name) {
 	return new Promise((resolve, reject) => {
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', '../scripts/new_client_key.php', true);
+		xhr.open('POST', './scripts/new_client_key.php', true);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {
