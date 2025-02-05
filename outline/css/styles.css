@@ -7,10 +7,6 @@ button:hover: #E9E9E9
 plain text: #838383
 plain text:hover: #4b4b4b
 */
-body {
-	display: flex;
-	justify-content: center;
-}
 
 header {
 	display: flex;
@@ -73,14 +69,23 @@ button>img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.listWrapper {
+	display: flex;
+	justify-content: center;
 	width: 768px;
 	margin: 22px;
 	padding: 5px;
 
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: rgb(58, 135, 212);
+}
+/*
 	flex-direction: column;
 	text-align: center;
-}
-
+*/
 h1 {
 	text-align: left;
 	font-size: 24px;
@@ -105,15 +110,6 @@ h1 {
 
 .wrapper>button {
 	text-align: center !important;
-}
-
-.listWrapper {
-	border-radius: 10px;
-	overflow: hidden;
-	padding: 16px;
-	padding-bottom: 0;
-	padding-top: 0;
-	background-color: white;
 }
 
 .buttonWrapper {
