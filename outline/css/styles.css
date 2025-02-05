@@ -50,10 +50,10 @@ button>img {
 	color: #4b4b4b;
 }
 .img_logout_button {
-	background-image: url('images/logout_button.svg');
+	background-image: url('../images/logout_button.svg');
 }
 .img_logout_button:hover {
-	background-image: url('images/logout_button_hover.svg');
+	background-image: url('../images/logout_button_hover.svg');
 }
 
 .container {
