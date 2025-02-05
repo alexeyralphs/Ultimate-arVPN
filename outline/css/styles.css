@@ -1,10 +1,15 @@
 @import "reset.css";
 
+header {
+	justify-content: center;
+    align-items: center;
+}
+
 .header {
 	display: flex;
 	width: 768px;
 	align-items: center;
-	margin: 0 auto;
+	margin-top: 45px;
 }
 
 .button_logout {
