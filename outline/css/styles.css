@@ -8,6 +8,7 @@ plain text: #838383
 plain text:hover: #4b4b4b
 */
 body {
+	display: flex;
 	justify-content: center;
 }
 
@@ -75,7 +76,7 @@ button>img {
 	width: 768px;
 	margin: 22px;
 	padding: 5px;
-	
+
 	flex-direction: column;
 	text-align: center;
 }
