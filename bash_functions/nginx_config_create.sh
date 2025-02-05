@@ -6,6 +6,10 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 nginx_config_create() {
+    sudo rm /etc/ssl/${WEB_ADDRESS}.crt
+    sudo rm /etc/ssl/${WEB_ADDRESS}.key
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
+
     curl -s -o /etc/nginx/sites-available/vpnadmin https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.conf
     sudo sed -i "s/\$WEB_ADDRESS/$WEB_ADDRESS/g" /etc/nginx/sites-available/vpnadmin
     sudo ln -s /etc/nginx/sites-available/vpnadmin /etc/nginx/sites-enabled/
@@ -14,9 +18,8 @@ nginx_config_create() {
     curl -s -o /var/www/vpnadmin/index.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/index.html
 
     sudo systemctl restart nginx
-
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
-    certbot certonly --nginx --agree-tos --email null@null.null -d $WEB_ADDRESS -d www.$WEB_ADDRESS
+    
+    certbot certonly --nginx --agree-tos --register-unsafely-without-email -d $WEB_ADDRESS -d www.$WEB_ADDRESS
 
     if [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/fullchain.pem" ] && [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/privkey.pem" ]; then
         sudo rm /etc/ssl/${WEB_ADDRESS}.crt
