@@ -16,7 +16,7 @@ nginx_config_create() {
     sudo systemctl restart nginx
 
     sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
-    certbot certonly --nginx --agree-tos -d $WEB_ADDRESS -d www.$WEB_ADDRESS
+    certbot certonly --nginx --agree-tos --email null@null.null -d $WEB_ADDRESS -d www.$WEB_ADDRESS
 
     if [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/fullchain.pem" ] && [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/privkey.pem" ]; then
         sudo rm /etc/ssl/${WEB_ADDRESS}.crt
