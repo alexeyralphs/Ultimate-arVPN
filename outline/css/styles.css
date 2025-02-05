@@ -50,11 +50,13 @@ button>img {
 	background: none;
 	color: #4b4b4b;
 }
-.img_logout_button {
-	background-image: url('../images/logout_button.svg');
+.logout_button img {
+    width: 20px;
+    height: 20px;
+    content: url('../images/logout_button.svg');
 }
-.img_logout_button:hover {
-	background-image: url('../images/logout_button_hover.svg');
+.logout_button:hover img {
+    content: url('../images/logout_button_hover.svg');
 }
 
 .container {
