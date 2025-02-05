@@ -30,6 +30,7 @@ button:hover {
 }
 button>img {
 	height: 20px;
+	width: 20px;
 }
 
 .header {
