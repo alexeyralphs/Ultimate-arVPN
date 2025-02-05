@@ -1,5 +1,9 @@
 @import "reset.css";
 
+.header {
+	width: 50%;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
