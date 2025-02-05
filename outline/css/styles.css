@@ -7,6 +7,9 @@ button:hover: #E9E9E9
 plain text: #838383
 plain text:hover: #4b4b4b
 */
+body {
+	justify-content: center;
+}
 
 header {
 	display: flex;
@@ -72,10 +75,9 @@ button>img {
 	width: 768px;
 	margin: 22px;
 	padding: 5px;
+	
 	flex-direction: column;
-/*
-text-align: center;
-*/
+	text-align: center;
 }
 
 h1 {
