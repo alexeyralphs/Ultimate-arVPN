@@ -67,14 +67,16 @@ button>img {
 
 .container {
 	display: flex;
-	flex-direction: column;
-	width: 768px;
+	justify-content: center;
+	align-items: center;
 	margin: 22px;
 	margin-top: 44px;
 	padding: 5px;
+	flex-direction: column;
 /*
-	text-align: center;
-	*/
+width: 768px;
+text-align: center;
+*/
 }
 
 h1 {
