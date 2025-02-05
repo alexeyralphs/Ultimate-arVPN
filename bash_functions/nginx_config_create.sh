@@ -19,7 +19,7 @@ nginx_config_create() {
 
     sudo systemctl restart nginx
     
-    certbot certonly --nginx --agree-tos --register-unsafely-without-email -d $WEB_ADDRESS -d www.$WEB_ADDRESS
+    certbot certonly --nginx --agree-tos --register-unsafely-without-email --keep-until-expiring -d $WEB_ADDRESS -d www.$WEB_ADDRESS
 
     if [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/fullchain.pem" ] && [ -f "/etc/letsencrypt/live/$WEB_ADDRESS/privkey.pem" ]; then
         sudo rm /etc/ssl/${WEB_ADDRESS}.crt
