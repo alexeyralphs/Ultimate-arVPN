@@ -162,5 +162,5 @@ echo "---
 ---
 ---
 ---"
-echo "${BLUE_BG}${BLACK_FG}Wireguard GUI:${RESET} http://$WEB_ADDRESS:8181/wireguard | ${BLUE_BG}${BLACK_FG}Login:${RESET} vpnadmin | ${BLUE_BG}${BLACK_FG}Password:${RESET} $PASSWORD"
-echo "${BLUE_BG}${BLACK_FG}Outline Web-GUI:${RESET} http://$WEB_ADDRESS:8181/outline | ${BLUE_BG}${BLACK_FG}Login:${RESET} vpnadmin | ${BLUE_BG}${BLACK_FG}Password:${RESET} $PASSWORD"
+echo "${BLUE_BG}${BLACK_FG}Wireguard GUI:${RESET} http://$WEB_ADDRESS/wireguard | ${BLUE_BG}${BLACK_FG}Login:${RESET} vpnadmin | ${BLUE_BG}${BLACK_FG}Password:${RESET} $PASSWORD"
+echo "${BLUE_BG}${BLACK_FG}Outline Web-GUI:${RESET} http://$WEB_ADDRESS/outline | ${BLUE_BG}${BLACK_FG}Login:${RESET} vpnadmin | ${BLUE_BG}${BLACK_FG}Password:${RESET} $PASSWORD"

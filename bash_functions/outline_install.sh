@@ -34,7 +34,7 @@ outline_install() {
         exit 1
     fi
     
-    echo "Outline Web-GUI: http://$WEB_ADDRESS:8181/outline | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
+    echo "Outline Web-GUI: http://$WEB_ADDRESS/outline | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
     echo "Outline Manager key: $OUTLINE_MANAGER_KEY" | sudo tee -a credentials.txt > /dev/null
 
     outline_update

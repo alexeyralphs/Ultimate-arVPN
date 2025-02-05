@@ -30,5 +30,5 @@ wg_easy_install() {
         exit 1
     fi
 
-    echo "Wireguard GUI: http://$WEB_ADDRESS:8181/wireguard | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
+    echo "Wireguard GUI: http://$WEB_ADDRESS/wireguard | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
 }
