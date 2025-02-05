@@ -17,7 +17,9 @@ header {
 	display: flex;
 	align-items: center;
 	width: 768px;
-	margin-top: 45px;
+	margin: 22px;
+	margin-top: 44px;
+	padding: 5px;
 }
 
 button {
@@ -67,10 +69,10 @@ button>img {
 	display: flex;
 	flex-direction: column;
 	width: 768px;
-	margin-top: 45px;
+	margin: 22px;
+	margin-top: 44px;
+	padding: 5px;
 /*
-	margin: 0 auto;
-	padding: 2rem;
 	text-align: center;
 	*/
 }
