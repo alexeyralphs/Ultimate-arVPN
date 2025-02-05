@@ -13,10 +13,6 @@ header {
 	margin-top: 45px;
 }
 
-.button_logout {
-
-}
-
 .button {
 	border: none;
 	border-radius: 7px;
@@ -27,12 +23,22 @@ header {
 	min-height: 50px;
 }
 
-.button>svg {
+.button1 {
+	border: none;
+	border-radius: 7px;
+	padding: 16px;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	min-height: 50px;
+}
+
+.button1>svg {
 	width: 22px;
 	height: 19px;
 }
 
-.button:hover {
+.button1:hover {
 	opacity: 0.8;
 }
 
