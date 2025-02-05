@@ -51,8 +51,6 @@ button>img {
 	color: #4b4b4b;
 }
 .logout_button img {
-    width: 20px;
-    height: 20px;
     content: url('../images/logout_button.svg');
 }
 .logout_button:hover img {
