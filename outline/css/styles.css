@@ -17,6 +17,43 @@ header {
 
 }
 
+.button {
+	border: none;
+	border-radius: 7px;
+	padding: 16px;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	min-height: 50px;
+}
+
+.button>svg {
+	width: 22px;
+	height: 19px;
+}
+
+.button:hover {
+	opacity: 0.8;
+}
+
+.logout {
+	border: none;
+	background: none;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+}
+
+.logout:hover {
+	opacity: 0.8;
+}
+
+.logout>svg {
+	width: 15px;
+	height: 15px;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -109,25 +146,6 @@ h1 {
 	border: none;
 }
 
-.button {
-	border: none;
-	border-radius: 7px;
-	padding: 16px;
-	border: 1px solid lightgray;
-	cursor: pointer;
-	background-color: #f5f5f5;
-	min-height: 50px;
-}
-
-.button>svg {
-	width: 22px;
-	height: 19px;
-}
-
-.button:hover {
-	opacity: 0.8;
-}
-
 .buttonDelete {
 	background-color: #207f75;
 	border: 1px solid #183729;
@@ -180,24 +198,6 @@ h1 {
 	align-items: center;
 	margin-bottom: 16px;
 	box-sizing: border-box;
-}
-
-.logout {
-	border: none;
-	background: none;
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	cursor: pointer;
-}
-
-.logout:hover {
-	opacity: 0.8;
-}
-
-.logout>svg {
-	width: 15px;
-	height: 15px;
 }
 
 .popupWrapper {
