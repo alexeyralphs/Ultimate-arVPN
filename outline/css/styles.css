@@ -69,12 +69,11 @@ button>img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 768px;
 	margin: 22px;
-	margin-top: 44px;
 	padding: 5px;
 	flex-direction: column;
 /*
-width: 768px;
 text-align: center;
 */
 }
@@ -200,7 +199,7 @@ h1 {
 .buttonCode {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	font-size: 12px;
+	font-size: 5px;
 	display: flex;
 	align-items: center;
 	gap: 16px;
