@@ -1,7 +1,14 @@
 @import "reset.css";
 
 .header {
-	width: 50%;
+	display: flex;
+	width: 768px;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.button_logout {
+
 }
 
 .container {
