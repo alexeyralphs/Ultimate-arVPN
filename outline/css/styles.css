@@ -14,22 +14,18 @@ header {
 }
 
 .button {
+	display: flex;
+	align-items: center;
 	border-radius: 12px;
 	padding: 16px;
 	border: 1px solid lightgray;
 	cursor: pointer;
 	background-color: #f5f5f5;
-	min-height: 50px;
+	height: 45px;
 }
 
-.button1 {
-	border: none;
-	border-radius: 7px;
-	padding: 16px;
-	border: 1px solid lightgray;
-	cursor: pointer;
-	background-color: #f5f5f5;
-	min-height: 50px;
+.button:hover {
+	background-color: lightgray;
 }
 
 .button1>svg {
@@ -37,9 +33,7 @@ header {
 	height: 19px;
 }
 
-.button1:hover {
-	opacity: 0.8;
-}
+
 
 .logout {
 	border: none;
