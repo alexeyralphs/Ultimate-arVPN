@@ -13,6 +13,12 @@ header {
 	justify-content: center;
 	align-items: center;
 }
+.header {
+	display: flex;
+	align-items: center;
+	width: 768px;
+	margin-top: 45px;
+}
 
 button {
 	display: flex;
@@ -49,12 +55,7 @@ button>img {
 	background-size: 20px;
 }
 
-.header {
-	display: flex;
-	align-items: center;
-	width: 768px;
-	margin-top: 45px;
-}
+
 
 .logout_button {
 	margin-left: auto;
