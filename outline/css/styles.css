@@ -30,22 +30,11 @@ button>img {
 	margin-top: 45px;
 }
 
-.logout {
+.logout_button {
 	border: none;
 	background: none;
-	display: flex;
 	align-items: center;
 	gap: 5px;
-	cursor: pointer;
-}
-
-.logout:hover {
-	opacity: 0.8;
-}
-
-.logout>svg {
-	width: 15px;
-	height: 15px;
 }
 
 .container {
