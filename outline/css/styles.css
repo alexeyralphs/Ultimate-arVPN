@@ -1,14 +1,15 @@
 @import "reset.css";
 
 header {
+	display: flex;
 	justify-content: center;
     align-items: center;
 }
 
 .header {
 	display: flex;
-	width: 768px;
 	align-items: center;
+	width: 768px;
 	margin-top: 45px;
 }
 
