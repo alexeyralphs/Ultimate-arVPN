@@ -86,7 +86,7 @@ async function createClientKey(name) {
 	});
 }
 async function getClients() {
-	return fetch('../scripts/get_client_key_list.php').then((response) => response.json()).then((data) => {
+	return fetch('./scripts/get_client_key_list.php').then((response) => response.json()).then((data) => {
 		clients = data.accessKeys;
 		populateClientsList();
 	}).catch((error) => {
