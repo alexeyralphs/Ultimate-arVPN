@@ -14,8 +14,7 @@ header {
 }
 
 .button {
-	border: none;
-	border-radius: 7px;
+	border-radius: 12px;
 	padding: 16px;
 	border: 1px solid lightgray;
 	cursor: pointer;
