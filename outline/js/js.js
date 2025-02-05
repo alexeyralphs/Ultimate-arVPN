@@ -43,7 +43,7 @@ function resetAuth() {
 
 function createManagerKey() {
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', './scripts/regenerate_outline_manager_key.php', true);
+	xhr.open('POST', '../scripts/regenerate_outline_manager_key.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
@@ -59,7 +59,7 @@ function createManagerKey() {
 async function createClientKey(name) {
 	return new Promise((resolve, reject) => {
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', './scripts/new_client_key.php', true);
+		xhr.open('POST', '../scripts/new_client_key.php', true);
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {
@@ -86,7 +86,7 @@ async function createClientKey(name) {
 	});
 }
 async function getClients() {
-	return fetch('./scripts/get_client_key_list.php').then((response) => response.json()).then((data) => {
+	return fetch('../scripts/get_client_key_list.php').then((response) => response.json()).then((data) => {
 		clients = data.accessKeys;
 		populateClientsList();
 	}).catch((error) => {
@@ -137,7 +137,7 @@ async function deleteClient(id) {
 	try {
 		const params = new URLSearchParams();
 		params.append('id', id);
-		const response = await fetch('./scripts/remove_client.php', {
+		const response = await fetch('../scripts/remove_client.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
