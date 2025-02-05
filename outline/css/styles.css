@@ -49,6 +49,12 @@ button>img {
 	background: none;
 	color: #4b4b4b;
 }
+.img_logout_button {
+	background-image: url('images/logout_button.svg');
+}
+.img_logout_button:hover {
+	background-image: url('images/logout_button_hover.svg');
+}
 
 .container {
 	display: flex;
