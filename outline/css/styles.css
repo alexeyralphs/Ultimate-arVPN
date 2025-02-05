@@ -6,14 +6,7 @@ header {
     align-items: center;
 }
 
-.header {
-	display: flex;
-	align-items: center;
-	width: 768px;
-	margin-top: 45px;
-}
-
-.button {
+button {
 	display: flex;
 	align-items: center;
 	border-radius: 12px;
@@ -24,16 +17,20 @@ header {
 	height: 45px;
 }
 
-.button:hover {
-	background-color: lightgray;
+button:hover {
+	background-color: #E9E9E9
 }
 
-.button1>svg {
-	width: 22px;
-	height: 19px;
+button>img {
+	height: 20px;
 }
 
-
+.header {
+	display: flex;
+	align-items: center;
+	width: 768px;
+	margin-top: 45px;
+}
 
 .logout {
 	border: none;
