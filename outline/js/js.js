@@ -32,7 +32,7 @@ function copyToClipboard(text) {
 
 function resetAuth() {
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', `http://invalid:invalid@${host}/`, true);
+	xhr.open('GET', `https://invalid:invalid@${host}/`, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			window.location.reload(true);
