@@ -43,7 +43,7 @@ function resetAuth() {
 
 function createManagerKey() {
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', '../scripts/regenerate_outline_manager_key.php', true);
+	xhr.open('POST', './scripts/regenerate_outline_manager_key.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
@@ -137,7 +137,7 @@ async function deleteClient(id) {
 	try {
 		const params = new URLSearchParams();
 		params.append('id', id);
-		const response = await fetch('../scripts/remove_client.php', {
+		const response = await fetch('./scripts/remove_client.php', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
