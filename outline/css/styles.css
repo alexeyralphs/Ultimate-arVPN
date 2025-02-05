@@ -1,5 +1,13 @@
 @import "reset.css";
 
+/*
+button border: lightgray
+button bg: #f5f5f5
+button:hover: #E9E9E9
+plain text: #838383
+plain text:hover: #4b4b4b
+*/
+
 header {
 	display: flex;
 	justify-content: center;
@@ -35,10 +43,11 @@ button>img {
 	border: none;
 	background: none;
 	margin-left: auto;
-	color: #83899f;
+	color: #838383;
 }
 .logout_button:hover {
 	background: none;
+	color: #4b4b4b;
 }
 
 .container {
