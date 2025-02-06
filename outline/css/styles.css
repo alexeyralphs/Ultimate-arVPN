@@ -67,14 +67,14 @@ button>img {
 	margin: 44px auto;
 }
 
-.listWrapper {
+.wrapper {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
 	padding: 5px;
 	gap: 10px;
 	border-radius: 12px;
-	overflow: hidden;
+	word-break: break-all;
 	background-color: rgb(58, 135, 212);
 }
 /*
@@ -90,17 +90,6 @@ h1 {
 
 .logo {
 	width: 300px;
-}
-
-.wrapper {
-	background-color: #283339;
-	margin-bottom: 32px;
-	color: white;
-	padding: 16px;
-	box-sizing: border-box;
-	word-break: break-all;
-	border-radius: 10px;
-	overflow: hidden;
 }
 
 .wrapper>button {
