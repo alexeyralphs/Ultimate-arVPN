@@ -19,6 +19,13 @@ plain text:hover: #4b4b4b
 	gap: 10px;
 }
 
+h1 {
+	text-align: left;
+	font-size: 24px;
+	font-weight: 500;
+	margin: 0;
+}
+
 button {
 	display: flex;
 	align-items: center;
@@ -89,13 +96,6 @@ button>img {
 	padding: 5px;
 	gap: 10px;
 	border-bottom: 1px solid lightgray;
-}
-
-h1 {
-	text-align: left;
-	font-size: 24px;
-	font-weight: 500;
-	margin: 0;
 }
 
 .list {
