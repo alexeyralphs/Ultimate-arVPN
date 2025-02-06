@@ -11,7 +11,8 @@ plain text:hover: #4b4b4b
 .header {
 	display: flex;
 	align-items: center;
-	width: 768px;
+	width: 100%;
+	max-width: 768px;
 	margin: 0 auto;
 	margin-top: 44px;
 	margin-bottom: 22px;
@@ -61,17 +62,14 @@ button>img {
 	background-image: url('../images/logout_button_hover.svg');
 }
 
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .listWrapper {
 	display: flex;
 	justify-content: center;
-	width: 768px;
-	margin: 22px;
+	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
+	margin-top: 22px;
+	margin-bottom: 22px;
 	padding: 5px;
 
 	border-radius: 10px;
