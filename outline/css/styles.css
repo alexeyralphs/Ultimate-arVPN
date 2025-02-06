@@ -85,6 +85,7 @@ button>img {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	border-bottom: 2px solid lightgray;
 	padding-top: 16px;
 	padding-bottom: 16px;
