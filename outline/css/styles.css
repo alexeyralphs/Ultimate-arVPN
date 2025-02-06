@@ -13,9 +13,7 @@ plain text:hover: #4b4b4b
 	align-items: center;
 	width: 100%;
 	max-width: 768px;
-	margin: 0 auto;
-	margin-top: 44px;
-	margin-bottom: 22px;
+	margin: 44px auto;
 	padding: 5px;
 }
 
@@ -65,9 +63,7 @@ button>img {
 .container {
 	width: 100%;
 	max-width: 768px;
-	margin: 0 auto;
-	margin-top: 22px;
-	margin-bottom: 22px;
+	margin: 44px auto;
 }
 .listWrapper {
 	display: flex;
