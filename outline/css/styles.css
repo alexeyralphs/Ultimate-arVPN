@@ -61,24 +61,23 @@ button>img {
 }
 
 .container {
+	display: grid;
 	width: 100%;
 	max-width: 768px;
 	margin: 44px auto;
 }
 
 .wrapper {
-	display: flex;
 	justify-content: space-between;
 	width: 100%;
 	padding: 5px;
 	gap: 10px;
 	border-radius: 12px;
+	text-align: center;
 	word-break: break-all;
 	background-color: rgb(58, 135, 212);
 }
-/*
-	flex-direction: column;
-	text-align: center;
+	
 */
 h1 {
 	text-align: left;
