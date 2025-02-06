@@ -65,14 +65,15 @@ button>img {
 .container {
 	width: 100%;
 	max-width: 768px;
+	margin: 0 auto;
+	margin-top: 22px;
+	margin-bottom: 22px;
 }
 .listWrapper {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	margin: 0 auto;
-	margin-top: 22px;
-	margin-bottom: 22px;
+
 	padding: 5px;
 
 	border-radius: 10px;
