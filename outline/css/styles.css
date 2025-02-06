@@ -8,17 +8,13 @@ plain text: #838383
 plain text:hover: #4b4b4b
 */
 
-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 .header {
 	display: flex;
 	align-items: center;
 	width: 768px;
-	margin: 22px;
+	margin: 0 auto;
 	margin-top: 44px;
+	margin-bottom: 22px;
 	padding: 5px;
 }
 
