@@ -33,7 +33,7 @@ html,body {
 }
 
 input,button,textarea {
-	font-family: inherit;
+	font-family: "PT Sans", "Arial", sans-serif;
 }
 
 input::-ms-clear {
@@ -60,6 +60,7 @@ img {
 }
 
 h1,h2,h3,h4,h5,h5 {
+	font-family: "PT Sans", "Arial", sans-serif;
 	font-size: inherit;
-	font-weight: 400;
+	font-weight: bold;
 }
