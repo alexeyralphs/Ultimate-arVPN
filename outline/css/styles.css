@@ -11,6 +11,7 @@ plain text:hover: #4b4b4b
 .header {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	width: 100%;
 	max-width: 768px;
 	margin: 44px auto;
@@ -53,7 +54,6 @@ button>img {
 }
 
 .logout_button {
-	margin-left: auto;
 	background-image: url('../images/logout_button.svg');
 }
 .logout_button:hover {
@@ -70,6 +70,7 @@ button>img {
 .wrapper {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
 	width: 100%;
 	padding: 5px;
