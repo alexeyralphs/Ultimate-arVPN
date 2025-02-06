@@ -32,7 +32,7 @@ html,body {
 	-webkit-text-size-adjust: 100%;
 }
 
-input,button,textarea {
+p,input,button,textarea {
 	font-family: "PT Sans", "Arial", sans-serif;
 }
 
