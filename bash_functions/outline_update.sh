@@ -12,6 +12,8 @@ outline_update() {
     sudo mkdir -vp /var/www/vpnadmin/outline/js
 
     curl -s -o /var/www/vpnadmin/outline/index.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/index.html
+    curl -s -o /var/www/vpnadmin/outline/header.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/header.html
+    curl -s -o /var/www/vpnadmin/outline/client_list.php https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/client_list.html
 
     curl -s -o /var/www/vpnadmin/outline/css/styles.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/styles.css
     curl -s -o /var/www/vpnadmin/outline/css/reset.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/reset.css

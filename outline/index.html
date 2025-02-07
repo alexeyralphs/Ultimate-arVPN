@@ -13,23 +13,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
 	<body>
-		<header>
-			<div class="header">
-				<img class="logo" src="images/outline_title.svg" alt="Outline title" height="40" />
-				<button class="transparent_button logout_button" onclick="resetAuth()">
-					Logout
-				</button>
-			</div>
-		</header>
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<div class="wrapper">
-				<div class="title_wrapper title_wrapper_list">
-					<h5>Clients</h5>
-					<button onclick="showPopup()">+ New</button>
-				</div>
-				<ul class="list" id="clientsList">
-				</ul>
-			</div>
+			<?php include 'client_list.php'; ?>
 			<div id="createNewClientPopup" class="popupWrapper" style="display: none;" onclick="closePopup(event)">
 				<div class="popup">
 					<h3>Create new client</h3>

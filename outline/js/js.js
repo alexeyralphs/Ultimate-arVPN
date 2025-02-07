@@ -80,8 +80,8 @@ function closePopup(e) {
 }
 
 function populateClientsList() {
-	const clientsList = document.getElementById('clientsList');
-	clientsList.innerHTML = '';
+	const client_list = document.getElementById('client_list');
+	client_list.innerHTML = '';
 	clients.forEach(client => {
 		const listItem = document.createElement('li');
 		listItem.className = 'item';
@@ -96,7 +96,7 @@ function populateClientsList() {
                             <img src="images/delete_button.svg" alt="Delete Button" height="20">
                         </button>
                     `;
-		clientsList.appendChild(listItem);
+		client_list.appendChild(listItem);
 	});
 }
 async function createNewClientHandler() {
