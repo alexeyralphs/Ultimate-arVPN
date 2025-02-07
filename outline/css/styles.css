@@ -99,7 +99,7 @@ button>img {
 	word-break: break-all;
 }
 
-.popup_wrapper {
+.popup_container {
 	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
 	top: 0;
