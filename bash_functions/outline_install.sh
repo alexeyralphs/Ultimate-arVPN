@@ -16,7 +16,7 @@ source <(echo "$func_outline_update")
 outline_install() {
     wget -q --inet4-only https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh
     yes | sudo bash install_server.sh --hostname $WEB_ADDRESS --keys-port 8081 > outline_manager_output.txt
-    OUTLINE_MANAGER_KEY=$(sudo grep -oE '\{"api.*"}' outline_manager_output.txt) # Создаем переменную с ключом для подключения к Outline Manager
+    OUTLINE_MANAGER_KEY=$(sudo cat outline_manager_output.txt | sed -E 's/\x1B\[[0-9;]*m//g' | grep -oP '{.*}')
     sudo rm install_server.sh -f
     sudo rm outline_manager_output.txt -f
 
