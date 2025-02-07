@@ -4,6 +4,9 @@
 button border: lightgray
 button bg: #f5f5f5
 button:hover: #E9E9E9
+button_styled border: #183729
+button_styled bg: #207f75
+button_styled:hover: #1c5b4f
 plain text: #838383
 plain text:hover: #4b4b4b
 */
@@ -121,16 +124,12 @@ button>img {
 	border: 1px solid lightgray;
 }
 
-.buttonDelete {
+.button_styled {
 	background-color: #207f75;
 	border: 1px solid #183729;
-	color: #207f75;
-	width: 50px;
-	height: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	justify-self: flex-end;
+}
+.button_styled:hover {
+	background-color: #1c5b4f
 }
 
 .buttonRegenerate {
