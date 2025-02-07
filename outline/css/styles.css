@@ -114,6 +114,9 @@ button>img {
 	width: 100%;
 	row-gap: 10px;
 }
+.title_wrapper_list {
+	padding: 0;
+}
 
 .item {
 	display: grid;
