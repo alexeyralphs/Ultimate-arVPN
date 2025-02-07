@@ -112,7 +112,7 @@ button>img {
 }
 
 .item {
-	padding: 5px;
+	padding: 10px;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 50px 70px 1fr 50px;
