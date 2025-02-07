@@ -103,11 +103,11 @@ button>img {
 	width: 100%;
 	padding: 10px;
 	gap: 10px;
-	border-bottom: 1px solid lightgray;
 }
 
 .list {
 	width: 100%;
+	row-gap: 10px;
 }
 
 .item {
