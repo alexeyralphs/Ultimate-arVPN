@@ -66,6 +66,7 @@ button>img {
 
 .logout_button {
 	background-image: url('../images/logout_button.svg');
+	max-width: 25%;
 }
 .logout_button:hover {
 	background-image: url('../images/logout_button_hover.svg');
