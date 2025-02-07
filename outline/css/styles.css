@@ -94,7 +94,6 @@ button>img {
 	border-radius: 12px;
 	text-align: center;
 	word-break: break-all;
-	background-color: rgb(58, 135, 212);
 }
 
 .title_wrapper {
@@ -112,13 +111,15 @@ button>img {
 }
 
 .item {
-	padding: 10px;
-	width: 100%;
 	display: grid;
-	grid-template-columns: 50px 70px 1fr 50px;
+	grid-template-columns: 0.1fr 0.2fr 1fr 0.1fr;
 	align-items: center;
+	width: 100%;
+	padding: 10px;
 	word-break: break-all;
 	gap: 10px;
+	border-radius: 12px;
+	border: 1px solid lightgray;
 	border-bottom: 1px solid lightgray;
 }
 .item:last-child {
