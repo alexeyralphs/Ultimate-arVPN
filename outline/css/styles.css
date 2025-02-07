@@ -99,6 +99,20 @@ button>img {
 	word-break: break-all;
 }
 
+.popup {
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+	padding: 16px;
+	background-color: white;
+	border-radius: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
 .popup_container {
 	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
@@ -171,26 +185,6 @@ button>img {
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 16px;
-}
-
-
-
-.popup {
-	width: 250px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 16px;
-	padding: 16px;
-	background-color: white;
-	border-radius: 15px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateY(-50%) translateX(-50%);
-}
-
-.popup h3 {
-	margin: 0;
 }
 
 .input {
