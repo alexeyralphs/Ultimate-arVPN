@@ -118,7 +118,7 @@ function populateClientsList() {
                             ${client.accessUrl}
                             <img src="images/copy_button.svg" alt="Copy Button" height="20">
                         </button>
-                        <button class="button buttonDelete" onclick="deleteClient(${client.id})">
+                        <button class="button button_styled" onclick="deleteClient(${client.id})">
                             <img src="images/delete_button.svg" alt="Delete Button" height="20">
                         </button>
                     `;
