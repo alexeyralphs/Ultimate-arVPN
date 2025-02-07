@@ -4,6 +4,9 @@ function resetAuth() {
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			window.location.reload(true);
+        }
+        else {
+            console.error('Error: ' + xhr.statusText);
 		}
 	};
 	xhr.send();
