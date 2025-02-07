@@ -116,13 +116,11 @@ button>img {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 50px 70px 1fr 50px;
-	justify-content: space-between;
 	align-items: center;
 	word-break: break-all;
 	gap: 10px;
 	border-bottom: 1px solid lightgray;
 }
-
 .item:last-child {
 	border: none;
 }
