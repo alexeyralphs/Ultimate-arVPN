@@ -84,7 +84,7 @@ function populateClientsList() {
 	client_list.innerHTML = '';
 	clients.forEach(client => {
 		const listItem = document.createElement('li');
-		listItem.className = 'item';
+		listItem.className = 'client_list_item';
 		listItem.innerHTML = `
                         <p>${client.id}</p>
                         <p>${client.name}</p>
