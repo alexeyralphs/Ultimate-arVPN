@@ -99,7 +99,6 @@ button>img {
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: space-between;
 	width: 100%;
 	padding: 5px;
@@ -109,7 +108,7 @@ button>img {
 	word-break: break-all;
 }
 
-.popup {
+.popup_wrapper {
 	display: flex;
 	flex-direction: column;
 	width: 250px;
