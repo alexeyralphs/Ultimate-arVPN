@@ -41,6 +41,7 @@ button>img {
 .button_styled {
 	background-color: var(--accent-color-50);
 	border: 1px solid var(--accent-color);
+	color: white;
 }
 .button_styled:hover {
 	background-color: var(--accent-color);
