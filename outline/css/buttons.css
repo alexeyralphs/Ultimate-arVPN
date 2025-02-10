@@ -3,7 +3,7 @@ button {
 	align-items: center;
 	border-radius: 12px;
 	padding: 16px;
-	border: 1px solid var(--light-color-75);
+	border: 1px solid var(--light-color);
 	background-color: var(--light-color-50);
 	height: 44px;
 	gap: 5px;
