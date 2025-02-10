@@ -3,13 +3,12 @@
     --text-color-75: rgba(75, 75, 75, 0.75);
     --text-color-50: rgba(75, 75, 75, 0.5);
     --text-color-25: rgba(75, 75, 75, 0.25);
-    --text-color-15: rgba(75, 75, 75, 0.15);
-    --text-color-10: rgba(75, 75, 75, 0.10);
-    --text-color-5: rgba(75, 75, 75, 0.05);
 }
 p,button,h1,h2,h3,h4,h5,h6 {
     text-align: left;
 	color: var(--text-color);
+}
+button,h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
 }
 h1 {

@@ -1,0 +1,6 @@
+:root {
+    --light-color: rgba(233, 233, 233, 1);
+    --light-color-75: rgba(233, 233, 233, 0.75);
+    --light-color-50: rgba(233, 233, 233, 0.5);
+    --light-color-25: rgba(233, 233, 233, 0.25);
+}

@@ -3,21 +3,20 @@ button {
 	align-items: center;
 	border-radius: 12px;
 	padding: 16px;
-	border: 1px solid lightgray;
-	background-color: #f5f5f5;
+	border: 1px solid var(--light-color-75);
+	background-color: var(--light-color-50);
 	height: 44px;
 	gap: 5px;
-	font-weight: bold;
 }
 button:hover {
-	background-color: #E9E9E9
+	background-color: var(--light-color);
 }
 button:disabled {
 	cursor: not-allowed;
     color: var(--text-color-25);
 }
 button:disabled:hover {
-	background-color: #f5f5f5;
+	background-color: var(--light-color-50);
 }
 button>img {
 	height: 20px;
