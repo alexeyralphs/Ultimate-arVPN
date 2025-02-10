@@ -39,9 +39,9 @@ button>img {
 	background-size: 20px;
 }
 .button_styled {
-	background-color: #207f75;
-	border: 1px solid #183729;
+	background-color: var(--accent-color-50);
+	border: 1px solid var(--accent-color);
 }
 .button_styled:hover {
-	background-color: #1c5b4f
+	background-color: var(--accent-color);
 }
