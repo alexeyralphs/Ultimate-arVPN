@@ -17,8 +17,10 @@ $curl = curl_init();
 curl_setopt_array($curl, [
     CURLOPT_URL => $accessKeysUrl,
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_SSL_VERIFYPEER => false,
     CURLOPT_SSL_VERIFYHOST => 2,
+	CURLOPT_VERBOSE => true,
+    CURLOPT_STDERR => fopen('php://stderr', 'w'),
 ]);
 
 $response = curl_exec($curl);
