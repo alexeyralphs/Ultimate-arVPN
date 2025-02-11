@@ -26,6 +26,13 @@ plain text:hover: #4b4b4b
 .logout_button:hover {
 	background-image: url('../images/logout_button_hover.svg');
 }
+.cross_button {
+	background-image: url('../images/cross_button.svg');
+	max-width: 50%;
+}
+.cross_button:hover {
+	background-image: url('../images/cross_button_hover.svg');
+}
 
 .list {
 	display: flex;
