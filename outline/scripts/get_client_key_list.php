@@ -5,7 +5,12 @@ $keyData = json_decode($keyContent, true);
 $apiUrl = $keyData['apiUrl'];
 $accessKeysUrl = $apiUrl . '/access-keys/';
 $curl = curl_init();
-curl_setopt_array($curl, [CURLOPT_URL => $accessKeysUrl, CURLOPT_RETURNTRANSFER => true, CURLOPT_SSL_VERIFYPEER => false, CURLOPT_SSL_VERIFYHOST => false]);
+curl_setopt_array($curl, [
+	CURLOPT_URL => $accessKeysUrl,
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_SSL_VERIFYPEER => false,
+	CURLOPT_SSL_VERIFYHOST => false
+]);
 
 $response = curl_exec($curl);
 curl_close($curl);
