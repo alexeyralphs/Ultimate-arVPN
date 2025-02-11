@@ -52,7 +52,7 @@ async function createClientKey(name) {
 		};
 		xhr.send('name=' + encodeURIComponent(name));
 	}).then(async () => {
-		await getClients();
+		await get_client_list();
 		populateClientsList();
 	}).catch(error => {
 		console.error('Ошибка:', error);
@@ -92,7 +92,7 @@ async function deleteClient(id) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
 		if (response.ok) {
-			await getClients();
+			await get_client_list();
 			populateClientsList();
 		}
 	} catch (error) {
