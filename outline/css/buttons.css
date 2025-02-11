@@ -22,10 +22,16 @@ button>img {
 	height: 20px;
 	width: 20px;
 }
+.button_1by1 {
+	background-position: center;
+}
+.button_1by1:hover {
+	background-position: center;
+}
 .transparent_button {
 	border: none;
 	background: none;
-	height: 22px;
+	height: 33px;
 	color: var(--text-color-50);
 	background-repeat: no-repeat;
 	background-position: left center;
@@ -38,9 +44,6 @@ button>img {
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: 20px;
-}
-.transparent_button_1by1 {
-	padding: 0px;
 }
 .button_styled {
 	background-color: var(--accent-color);
