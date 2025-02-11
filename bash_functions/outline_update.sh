@@ -19,6 +19,7 @@ outline_update() {
     curl -s -o /var/www/vpnadmin/outline/css/styles.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/styles.css
     curl -s -o /var/www/vpnadmin/outline/css/reset.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/reset.css
     curl -s -o /var/www/vpnadmin/outline/css/backgrounds.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/backgrounds.css
+    curl -s -o /var/www/vpnadmin/outline/css/containers.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/containers.css
     curl -s -o /var/www/vpnadmin/outline/css/text.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/text.css
     curl -s -o /var/www/vpnadmin/outline/css/buttons.css https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/css/buttons.css
 
