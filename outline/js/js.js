@@ -80,24 +80,25 @@ function closePopup(e) {
 }
 
 function populateClientsList() {
-	const client_list = document.getElementById('client_list');
-	client_list.innerHTML = '';
-	clients.forEach(client => {
-		const listItem = document.createElement('li');
-		listItem.className = 'client_list_item';
-		listItem.innerHTML = `
-                        <p>${client.id}</p>
-                        <p>${client.name}</p>
-                        <button class="button buttonCode" onclick="copyToClipboard('${client.accessUrl}')">
-                            ${client.accessUrl}
-                            <img src="images/copy_button.svg" alt="Copy Button" height="20">
-                        </button>
-                        <button class="button button_styled" onclick="deleteClient(${client.id})">
-                            <img src="images/delete_button.svg" alt="Delete Button" height="20">
-                        </button>
-                    `;
-		client_list.appendChild(listItem);
-	});
+    const clientList = document.getElementById('client_list');
+    const template = document.getElementById('client-template').content;
+
+    clientList.innerHTML = ''; // Очищаем список перед обновлением
+
+    clients.forEach(client => {
+        const clone = document.importNode(template, true);
+        clone.querySelector('.client-id').textContent = client.id;
+        clone.querySelector('.client-name').textContent = client.name;
+        
+        const urlButton = clone.querySelector('.buttonCode');
+        urlButton.querySelector('.client-url').textContent = client.accessUrl;
+        urlButton.setAttribute('onclick', `copyToClipboard('${client.accessUrl}')`);
+
+        const deleteButton = clone.querySelector('.button_styled');
+        deleteButton.setAttribute('onclick', `deleteClient(${client.id})`);
+
+        clientList.appendChild(clone);
+    });
 }
 async function createNewClientHandler() {
 	const clientNameInput = document.getElementById('clientNameInput');
