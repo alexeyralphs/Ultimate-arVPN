@@ -34,6 +34,7 @@ outline_update() {
 
     curl -s -o /var/www/vpnadmin/outline/js/js.js https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/js/js.js
     curl -s -o /var/www/vpnadmin/outline/js/resetAuth.js https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/js/resetAuth.js
+    curl -s -o /var/www/vpnadmin/outline/js/get_client_list.js https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/js/get_client_list.js
     curl -s -o /var/www/vpnadmin/outline/js/regenerate_outline_manager_key.js https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/js/regenerate_outline_manager_key.js
 
     curl -s -o /var/www/vpnadmin/outline/scripts/regenerate_outline_manager_key.sh https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/outline/scripts/regenerate_outline_manager_key.sh
