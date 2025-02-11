@@ -5,7 +5,7 @@
     --light-color-25: rgba(233, 233, 233, 0.25);
 
     --accent-color: rgba(28, 91, 79, 1);
-    --accent-color-75: rgba(28, 91, 79, 1);
-    --accent-color-50: rgba(28, 91, 79, 1);
-    --accent-color-25: rgba(28, 91, 79, 1);
+    --accent-color-75: rgba(28, 91, 79, 0.75);
+    --accent-color-50: rgba(28, 91, 79, 0.5);
+    --accent-color-25: rgba(28, 91, 79, 0.25);
 }
