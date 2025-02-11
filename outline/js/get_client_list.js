@@ -1,9 +1,17 @@
 async function get_client_list() {
-	return fetch('./scripts/get_client_key_list.php').then((response) => response.json()).then((data) => {
-		clients = data.accessKeys;
-		populateClientsList();
-	}).catch((error) => {
-		console.error('Error:', error);
-	});
+    try {
+        const response = await fetch('./scripts/get_client_key_list.php');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        clients = data.accessKeys;
+        populateClientsList();
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
+
 get_client_list();

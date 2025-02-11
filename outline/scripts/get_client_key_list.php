@@ -23,7 +23,6 @@ curl_setopt_array($curl, [
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_SSL_VERIFYPEER => false,
     CURLOPT_SSL_VERIFYHOST => 2,
-	CURLOPT_VERBOSE => true,
     CURLOPT_STDERR => fopen('php://stderr', 'w'),
 ]);
 
