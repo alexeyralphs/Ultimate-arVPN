@@ -1,4 +1,3 @@
-let clients = [];
 const host = window.location.host;
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('jsonStringDisplay').textContent = jsonString;
