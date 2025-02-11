@@ -22,13 +22,6 @@ button>img {
 	height: 20px;
 	width: 20px;
 }
-.button_1by1 {
-	background-position: center;
-	padding: 0px;
-}
-.button_1by1:hover {
-	background-position: center;
-}
 .transparent_button {
 	border: none;
 	background: none;
@@ -53,4 +46,11 @@ button>img {
 }
 .button_styled:hover {
 	background-color: var(--accent-color-dark);
+}
+.button_1by1 {
+	background-position: center;
+	padding: 0px;
+}
+.button_1by1:hover {
+	background-position: center;
 }
