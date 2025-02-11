@@ -1,4 +1,4 @@
-let clients = []; // Объявляем переменную, которая будет хранить список клиентов
+let client_list = []; // Объявляем переменную, которая будет хранить список клиентов
 
 function populateClientsList() {
     const clientList = document.getElementById('client_list');
@@ -6,7 +6,7 @@ function populateClientsList() {
 
     clientList.innerHTML = ''; // Очищаем список перед обновлением
 
-    clients.forEach(client => {
+    client_list.forEach(client => {
         const clone = document.importNode(template, true);
         clone.querySelector('.client-id').textContent = client.id;
         clone.querySelector('.client-name').textContent = client.name;
@@ -32,7 +32,7 @@ async function get_client_list() {
 
         const data = await response.json();
         if (data.status === 'success' && data.output && data.output.accessKeys) {
-            clients = data.output.accessKeys; // Заполняем список клиентов
+            client_list = data.output.accessKeys; // Заполняем список клиентов
             populateClientsList(); // Обновляем DOM с клиентами
         } else {
             console.error("Неверный формат данных:", data);
