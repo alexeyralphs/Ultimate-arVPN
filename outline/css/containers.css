@@ -23,7 +23,6 @@
 	padding: 5px;
 	gap: 10px;
 	border-radius: 12px;
-	text-align: center;
 	word-break: break-all;
 }
 
@@ -57,7 +56,6 @@
 	background-color: white;
 	border-radius: 12px;
 	border: 1px solid var(--light-color);
-	text-align: center;
 	word-break: break-all;
 }
 

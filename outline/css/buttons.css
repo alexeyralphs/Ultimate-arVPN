@@ -25,6 +25,7 @@ button>img {
 .transparent_button {
 	border: none;
 	background: none;
+	height: 22px;
 	color: var(--text-color-50);
 	background-repeat: no-repeat;
 	background-position: left center;
@@ -39,7 +40,7 @@ button>img {
 	background-size: 20px;
 }
 .transparent_button_1by1 {
-	background-size: 20px;
+	padding: 0px;
 }
 .button_styled {
 	background-color: var(--accent-color);
