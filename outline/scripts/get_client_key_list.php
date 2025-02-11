@@ -14,5 +14,6 @@ curl_setopt_array($curl, [
 
 $response = curl_exec($curl);
 curl_close($curl);
-echo json_encode(json_decode($response, true), JSON_PRETTY_PRINT);
+$client_list = json_encode(json_decode($response, true), JSON_PRETTY_PRINT);
+echo $client_list;
 ?>
