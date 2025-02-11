@@ -24,6 +24,7 @@ button>img {
 }
 .button_1by1 {
 	background-position: center;
+	padding: 0px;
 }
 .button_1by1:hover {
 	background-position: center;
