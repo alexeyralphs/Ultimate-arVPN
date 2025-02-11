@@ -14,21 +14,5 @@ curl_setopt_array($curl, [
 
 $response = curl_exec($curl);
 curl_close($curl);
-$responseData = json_decode($response, true);
-
-$formattedData = '';
-foreach ($responseData['accessKeys'] as $key)
-{
-	$formattedData .= $key['id'] . ' | ' . $key['name'] . ' | ' . $key['accessUrl'] . "\n";
-}
-
-$outputFile = './client_key_list.php';
-file_put_contents($outputFile, $formattedData);
-
-if (php_sapi_name() === 'cli')
-{
-	echo 'Keys saved to ' . $outputFile . "\n";
-}
-
-echo json_encode($responseData);
+echo json_encode(json_decode($response, true), JSON_PRETTY_PRINT);
 ?>
