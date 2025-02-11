@@ -70,27 +70,6 @@ function closePopup(e) {
 	}
 }
 
-function populateClientsList() {
-    const clientList = document.getElementById('client_list');
-    const template = document.getElementById('client-template').content;
-
-    clientList.innerHTML = ''; // Очищаем список перед обновлением
-
-    clients.forEach(client => {
-        const clone = document.importNode(template, true);
-        clone.querySelector('.client-id').textContent = client.id;
-        clone.querySelector('.client-name').textContent = client.name;
-        
-        const urlButton = clone.querySelector('.buttonCode');
-        urlButton.querySelector('.client-url').textContent = client.accessUrl;
-        urlButton.setAttribute('onclick', `copyToClipboard('${client.accessUrl}')`);
-
-        const deleteButton = clone.querySelector('.button_styled');
-        deleteButton.setAttribute('onclick', `deleteClient(${client.id})`);
-
-        clientList.appendChild(clone);
-    });
-}
 async function createNewClientHandler() {
 	const clientNameInput = document.getElementById('clientNameInput');
 	await createClientKey(clientNameInput.value).then(() => {
