@@ -38,6 +38,9 @@ button>img {
 	background-position: left center;
 	background-size: 20px;
 }
+.transparent_button_1by1 {
+	background-size: 20px;
+}
 .button_styled {
 	background-color: var(--accent-color);
 	border: 1px solid var(--accent-color-dark);
