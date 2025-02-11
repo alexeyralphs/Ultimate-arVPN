@@ -1,4 +1,4 @@
-let client_list = []; // Объявляем переменную, которая будет хранить список клиентов
+let client_list = [];
 
 function populateClientsList() {
     const clientList = document.getElementById('client_list');
