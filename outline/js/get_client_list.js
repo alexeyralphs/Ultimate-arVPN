@@ -17,5 +17,4 @@ async function get_client_list() {
         console.error('Error:', error);
     }
 }
-
 get_client_list();

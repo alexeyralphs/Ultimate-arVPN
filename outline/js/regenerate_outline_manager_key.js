@@ -9,6 +9,7 @@ function regenerate_outline_manager_key() {
                 if (response.status === 'success') {
                     console.log('regenerate_outline_manager_key executed successfully!', response.output);
                     get_outline_manager_key();
+                    get_client_list();
                 } else {
                     console.error('regenerate_outline_manager_key error: ' + response.message);
                 }
