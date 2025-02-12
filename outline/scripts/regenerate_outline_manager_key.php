@@ -17,10 +17,10 @@ if ($return_var === 0)
 else
 {
 	http_response_code(500);
-	echo json_encode([
+	die (json_encode([
 		"status" => "error",
 		"message" => "[" . date('Y-m-d H:i:s') . "] Script execution error: " . implode("\n", $output) . "\n",
 		"output" => ""
-	]);
+	]));
 }
 ?>
