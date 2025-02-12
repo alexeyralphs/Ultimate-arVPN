@@ -1,6 +1,6 @@
 const host = window.location.host;
 document.addEventListener('DOMContentLoaded', function() {
-	get_outline_manager_key(current_outline_manager_key);
+	get_outline_manager_key();
 	render_client_list();
 	document.getElementById('clientNameInput').addEventListener('input', function(e) {
 		document.getElementById('createClientButton').disabled = e.target.value === '';

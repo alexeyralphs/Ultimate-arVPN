@@ -11,7 +11,7 @@ if (!$keyContent || !isset($keyData['apiUrl'])) {
 		"status" => "error",
 		"message" => "[" . date('Y-m-d H:i:s') . "] Error while reading manager key!",
 		"output" => ""
-	], JSON_PRETTY_PRINT));
+	]));
 }
 
 $apiUrl = $keyData['apiUrl'];
@@ -36,13 +36,13 @@ if ($response === false || $httpCode !== 200) {
 		"status" => "error",
 		"message" => "[" . date('Y-m-d H:i:s') . "] Error while connecting to manager API!",
 		"output" => ""
-	], JSON_PRETTY_PRINT));
+	]));
 }
 
 echo json_encode([
 	"status" => "success",
 	"message" => "",
 	"output" => json_decode($response, true)
-], JSON_PRETTY_PRINT);
+]);
 ?>
 
