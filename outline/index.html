@@ -28,15 +28,17 @@
 				<button class="button button_styled buttonRegenerate" onclick="regenerate_outline_manager_key()">Regenerate</button>
 			</div>
 			<button class="button buttonCode" onclick="copyToClipboard(jsonString)">
-			<span id="jsonStringDisplay"></span>
+			<span id="current_outline_manager_key"></span>
 			<img src="images/copy_button.svg" alt="Copy Button">
 			</button>
 		</div>
 		<script>
-			const jsonString =  `<?php echo ($keyContent); ?>`;
+			const outline_manager_key =  `<?php echo ($keyContent); ?>`;
 		</script>
 		<script src="js/resetAuth.js"></script>
+		<script src="js/render_client_list.js"></script>
 		<script src="js/get_client_list.js"></script>
+		<script src="js/get_outline_manager_key.js"></script>
 		<script src="js/regenerate_outline_manager_key.js"></script>
 		<script src="js/js.js"></script>
 	</body>

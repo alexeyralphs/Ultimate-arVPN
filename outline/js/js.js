@@ -1,7 +1,7 @@
 const host = window.location.host;
 document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('jsonStringDisplay').textContent = jsonString;
-	populateClientsList();
+	get_outline_manager_key(outline_manager_key);
+	render_client_list();
 	document.getElementById('clientNameInput').addEventListener('input', function(e) {
 		document.getElementById('createClientButton').disabled = e.target.value === '';
 	});
@@ -53,7 +53,7 @@ async function createClientKey(name) {
 		xhr.send('name=' + encodeURIComponent(name));
 	}).then(async () => {
 		await get_client_list();
-		populateClientsList();
+		render_client_list();
 	}).catch(error => {
 		console.error('Ошибка:', error);
 	});
@@ -74,7 +74,7 @@ async function createNewClientHandler() {
 	await createClientKey(clientNameInput.value).then(() => {
 		clientNameInput.value = '';
 		document.getElementById('createNewClientPopup').style.display = 'none';
-		populateClientsList();
+		render_client_list();
 	});
 }
 async function deleteClient(id) {
@@ -93,7 +93,7 @@ async function deleteClient(id) {
 		}
 		if (response.ok) {
 			await get_client_list();
-			populateClientsList();
+			render_client_list();
 		}
 	} catch (error) {
 		console.error('Error:', error);
