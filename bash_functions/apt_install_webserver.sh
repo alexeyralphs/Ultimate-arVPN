@@ -59,4 +59,8 @@ apt_install_webserver() {
         echo "${BLUE_BG}${BLACK_FG}openssl not found, exiting...${RESET}"
         exit 1
     fi
+
+    sudo rm /etc/ssl/${WEB_ADDRESS}.crt
+    sudo rm /etc/ssl/${WEB_ADDRESS}.key
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
 }
