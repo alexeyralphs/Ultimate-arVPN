@@ -6,10 +6,6 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 nginx_config_create() {
-    sudo rm /etc/ssl/${WEB_ADDRESS}.crt
-    sudo rm /etc/ssl/${WEB_ADDRESS}.key
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/${WEB_ADDRESS}.key -out /etc/ssl/${WEB_ADDRESS}.crt -subj "/CN=${WEB_ADDRESS}"
-
     curl -s -o /etc/nginx/sites-available/$admin_name https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/nginx_config_vpnadmin.conf
     sudo sed -i "s/\$WEB_ADDRESS/$WEB_ADDRESS/g" /etc/nginx/sites-available/$admin_name
     sudo sed -i "s/\$admin_name/$admin_name/g" /etc/nginx/sites-available/$admin_name
