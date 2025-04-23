@@ -7,6 +7,8 @@ RESET=$(tput sgr0)
 
 echo "${BLUE_BG}${BLACK_FG}Update is started!${RESET}"
 
+admin_name="vpnadmin"
+
 sudo apt update
 
 sudo apt -o Dpkg::Options::="--force-confold" upgrade -y
