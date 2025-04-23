@@ -7,6 +7,8 @@ RESET=$(tput sgr0)
 
 echo "${BLUE_BG}${BLACK_FG}Loading functions...${RESET}"
 
+admin_name="vpnadmin"
+
 # apt_install_initial() {}
 func_apt_install_initial=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/apt_install_initial.sh)
 if [[ -z "$func_apt_install_initial" ]]; then
