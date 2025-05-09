@@ -34,11 +34,11 @@ outline_install() {
         exit 1
     fi
     
-    echo "Outline Web-GUI: http://$WEB_ADDRESS/outline | Login: vpnadmin | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
+    echo "Outline Web-GUI: http://$WEB_ADDRESS/outline | Login: $admin_name | Password: $PASSWORD" | sudo tee -a credentials.txt > /dev/null
     echo "Outline Manager key: $OUTLINE_MANAGER_KEY" | sudo tee -a credentials.txt > /dev/null
 
     outline_update
 
-    sudo echo $OUTLINE_MANAGER_KEY > /var/www/vpnadmin/outline/outline_manager_key.php
-    sudo echo $WEB_ADDRESS > /var/www/vpnadmin/outline/web-address.php 
+    sudo echo $OUTLINE_MANAGER_KEY > /var/www/$admin_name/outline/outline_manager_key.php
+    sudo echo $WEB_ADDRESS > /var/www/$admin_name/outline/web-address.php 
 }
