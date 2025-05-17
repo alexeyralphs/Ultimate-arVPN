@@ -13,6 +13,8 @@ lines=(
 "30 6 * * * date >> /var/log/le-renew.log"
 "31 6 * * * certbot renew >> /var/log/le-renew.log"
 "35 6 * * * systemctl reload nginx"
+"45 5 chown -R $admin_name:$admin_name /var/www/$admin_name"
+"50 5 chmod -R 755 /var/www/$admin_name"
 )
 
 current_cron="$(crontab -l 2>/dev/null || true)"
