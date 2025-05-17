@@ -17,6 +17,4 @@ apt_install_initial() {
         echo "${BLUE_BG}${BLACK_FG}wget not found, exiting..."
         exit 1
     fi
-
-    (crontab -l 2>/dev/null | grep -Pq '^0\s+2\s+\*\s+\*\s+\*\s+apt\s+update\s*&&\s*apt\s+upgrade\s+-y$') || (crontab -l 2>/dev/null; echo "0 2 * * * apt update && apt upgrade -y") | crontab -
 }
