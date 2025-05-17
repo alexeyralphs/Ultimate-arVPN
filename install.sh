@@ -6,6 +6,12 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 sudo apt -o Dpkg::Options::="--force-confold" install curl -y
+if command -v curl &>/dev/null; then
+    echo "${BLUE_BG}${BLACK_FG}curl installed.${RESET}"
+else
+    echo "${BLUE_BG}${BLACK_FG}curl not found, exiting...${RESET}"
+    exit 1
+fi
 
 echo "${BLUE_BG}${BLACK_FG}Loading functions...${RESET}"
 
