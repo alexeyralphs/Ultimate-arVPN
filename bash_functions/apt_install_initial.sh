@@ -10,14 +10,6 @@ apt_install_initial() {
 
     sudo apt update
 
-    sudo apt -o Dpkg::Options::="--force-confold" install curl -y
-    if command -v curl &>/dev/null; then
-        echo "${BLUE_BG}${BLACK_FG}curl installed.${RESET}"
-    else
-        echo "${BLUE_BG}${BLACK_FG}curl not found, exiting...${RESET}"
-        exit 1
-    fi
-
     sudo apt -o Dpkg::Options::="--force-confold" install wget -y
     if command -v wget &>/dev/null; then
         echo "${BLUE_BG}${BLACK_FG}wget installed.${RESET}"
