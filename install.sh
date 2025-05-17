@@ -25,13 +25,13 @@ if [[ -z "$func_apt_install_initial" ]]; then
 fi
 source <(echo "$func_apt_install_initial")
 
-# crontab() {}
-func_crontab=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/crontab.sh)
-if [[ -z "$func_crontab" ]]; then
-    echo "Error in func_crontab!" >&2
+# crontab_set() {}
+func_crontab_set=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/crontab_set.sh)
+if [[ -z "$func_crontab_set" ]]; then
+    echo "Error in func_crontab_set!" >&2
     exit 1
 fi
-source <(echo "$func_crontab")
+source <(echo "$func_crontab_set")
 
 # check_ipv4() {}
 func_check_ipv4=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/check_ipv4.sh)
@@ -147,7 +147,7 @@ source <(echo "$func_admin_user_permissions")
 
 apt_install_initial
 
-crontab
+crontab_set
 
 check_ipv4
 
