@@ -8,10 +8,18 @@ RESET=$(tput sgr0)
 wg_easy_install() {
     docker stop wg-easy 2> /dev/null
     docker rm wg-easy 2> /dev/null
+
+    docker network create \
+        -d bridge --ipv6 \
+        -d default \
+        --subnet 10.42.42.0/24 \
+        --subnet fdcc:ad94:bacf:61a3::/64 wg \
+    
     docker run -d \
         --net wg \
         -e INSECURE=true \
         --name wg-easy \
+        --ip6 fdcc:ad94:bacf:61a3::2a \
         --ip 10.42.42.42 \
         -v ~/.wg-easy:/etc/wireguard \
         -v /lib/modules:/lib/modules:ro \
