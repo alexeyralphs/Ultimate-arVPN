@@ -5,7 +5,7 @@ GREEN_BG=$(tput setab 42)
 BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
-crontab_do() {
+crontab_set() {
 lines=(
 "PATH=/usr/bin:/bin:/sbin:/usr/sbin"
 "45 1 * * * apt update"
