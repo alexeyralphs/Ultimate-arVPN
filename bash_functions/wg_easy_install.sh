@@ -19,7 +19,7 @@ wg_easy_install() {
     echo "INIT_HOST=$WEB_ADDRESS" >> /etc/docker/containers/wg-easy/.env
     echo "INIT_PORT=8080" >> /etc/docker/containers/wg-easy/.env
     
-    docker compose -f /etc/docker/containers/wg-easy/docker-compose.yml up -d
+    docker compose --env-file /etc/docker/containers/wg-easy/.env -f /etc/docker/containers/wg-easy/docker-compose.yml up -d
     docker compose exec -it wg-easy cli db:admin:reset --password $PASSWORD
 
     if docker ps | grep -q "wg-easy"; then
