@@ -12,12 +12,12 @@ wg_easy_install() {
     sudo mkdir -p /etc/docker/containers/wg-easy
     sudo curl -o /etc/docker/containers/wg-easy/docker-compose.yml https://raw.githubusercontent.com/wg-easy/wg-easy/master/docker-compose.yml
     
-    echo "INSECURE=true" > /etc/docker/containers/wg-easy/env.env
-    echo "INIT_ENABLED=true" >> /etc/docker/containers/wg-easy/env.env
-    echo "INIT_USERNAME=$admin_name" >> /etc/docker/containers/wg-easy/env.env
-    echo "INIT_PASSWORD=$PASSWORD" >> /etc/docker/containers/wg-easy/env.env
-    echo "INIT_HOST=$WEB_ADDRESS" >> /etc/docker/containers/wg-easy/env.env
-    echo "INIT_HOST=8080" >> /etc/docker/containers/wg-easy/env.env
+    echo "INSECURE=true" > /etc/docker/containers/wg-easy/.env
+    echo "INIT_ENABLED=true" >> /etc/docker/containers/wg-easy/.env
+    echo "INIT_USERNAME=$admin_name" >> /etc/docker/containers/wg-easy/.env
+    echo "INIT_PASSWORD=$PASSWORD" >> /etc/docker/containers/wg-easy/.env
+    echo "INIT_HOST=$WEB_ADDRESS" >> /etc/docker/containers/wg-easy/.env
+    echo "INIT_HOST=8080" >> /etc/docker/containers/wg-easy/.env
     
     docker compose -f /etc/docker/containers/wg-easy/docker-compose.yml up -d
     docker compose exec -it wg-easy cli db:admin:reset --password $PASSWORD
