@@ -9,7 +9,7 @@ wg_easy_install() {
     docker stop wg-easy 2> /dev/null
     docker rm wg-easy 2> /dev/null
 
-    wg_password_hash=$(docker run --rm ghcr.io/wg-easy/wg-easy wgpw $PASSWORD)
+    wg_password_hash=$(docker run --rm ghcr.io/wg-easy/wg-easy wgpw "$PASSWORD")
 
     docker run -d --name=wg-easy \
     -e WG_HOST=$WEB_ADDRESS \
