@@ -11,7 +11,7 @@ wg_easy_install() {
 
     sudo mkdir -p /etc/docker/containers/wg-easy
     sudo curl -o /etc/docker/containers/wg-easy/docker-compose.yml https://raw.githubusercontent.com/wg-easy/wg-easy/master/docker-compose.yml
-    docker compose -f /etc/docker/containers/wg-easy/docker-compose.yml --env INSECURE=true up
+    docker compose --env INSECURE=true -f /etc/docker/containers/wg-easy/docker-compose.yml up
 
     if docker ps | grep -q "wg-easy"; then
         echo "${BLUE_BG}${BLACK_FG}wg-easy container is running. Continuing...${RESET}"
