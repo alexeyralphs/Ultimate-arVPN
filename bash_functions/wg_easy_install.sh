@@ -15,7 +15,7 @@ wg_easy_install() {
     -e WG_HOST=$WEB_ADDRESS \
     -e $wg_password_hash \
     -v /root/.wg-easy:/etc/wireguard \
-    -p 51820:51820/udp \
+    -p 8080:51820/udp \
     -p 51821:51821/tcp \
     --cap-add=NET_ADMIN \
     --cap-add=SYS_MODULE \
