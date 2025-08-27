@@ -27,6 +27,6 @@ for line in "${lines[@]}"; do
 done
 
 if [[ "$new_cron" != "$current_cron" ]]; then
-  echo "$new_cron" | crontab_do -
+  echo "$new_cron" | crontab_set -
 fi
 }
