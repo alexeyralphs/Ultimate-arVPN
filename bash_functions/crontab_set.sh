@@ -5,7 +5,7 @@ GREEN_BG=$(tput setab 42)
 BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
-crontab_set() {
+crontab_do() {
 lines=(
 "PATH=/usr/bin:/bin:/sbin:/usr/sbin"
 "45 1 * * * apt update"
@@ -27,6 +27,6 @@ for line in "${lines[@]}"; do
 done
 
 if [[ "$new_cron" != "$current_cron" ]]; then
-  echo "$new_cron" | crontab_set -
+  echo "$new_cron" | crontab_do -
 fi
 }
