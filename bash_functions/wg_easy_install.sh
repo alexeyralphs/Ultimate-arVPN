@@ -13,6 +13,7 @@ wg_easy_install() {
     sudo curl -o /etc/docker/containers/wg-easy/docker-compose.yml https://raw.githubusercontent.com/wg-easy/wg-easy/master/docker-compose.yml
     echo "INSECURE=true" > /etc/docker/containers/wg-easy/env.env
     docker compose -f /etc/docker/containers/wg-easy/docker-compose.yml up -d
+    docker compose exec -it wg-easy cli db:admin:reset --password $PASSWORD
 
     if docker ps | grep -q "wg-easy"; then
         echo "${BLUE_BG}${BLACK_FG}wg-easy container is running. Continuing...${RESET}"
