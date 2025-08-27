@@ -12,7 +12,6 @@ wg_easy_install() {
         --net wg \
         -e INSECURE=true \
         --name wg-easy \
-        --ip6 fdcc:ad94:bacf:61a3::2a \
         --ip 10.42.42.42 \
         -v ~/.wg-easy:/etc/wireguard \
         -v /lib/modules:/lib/modules:ro \
