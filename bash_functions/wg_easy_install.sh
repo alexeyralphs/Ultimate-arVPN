@@ -6,15 +6,23 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 wg_easy_install() {
-    docker compose stop wg-easy 2> /dev/null
-    docker compose rm wg-easy 2> /dev/null
+    docker stop wg-easy 2> /dev/null
+    docker rm wg-easy 2> /dev/null
 
-    sudo mkdir -p /etc/docker/containers/wg-easy
-    sudo curl -o /etc/docker/containers/wg-easy/docker-compose.yml https://raw.githubusercontent.com/wg-easy/wg-easy/master/docker-compose.yml
-    docker compose -f /etc/docker/containers/wg-easy/docker-compose.yml up -d \
-        -e PASSWORD=$PASSWORD \
-        -e WG_HOST=$WEB_ADDRESS \
-        -e PORT=8080
+    wg_password_hash=$(docker run --rm ghcr.io/wg-easy/wg-easy wgpw $PASSWORD)
+
+    docker run -d --name=wg-easy \
+    -e WG_HOST=$WEB_ADDRESS \
+    -e $wg_password_hash \
+    -v /root/.wg-easy:/etc/wireguard \
+    -p 51820:51820/udp \
+    -p 51821:51821/tcp \
+    --cap-add=NET_ADMIN \
+    --cap-add=SYS_MODULE \
+    --sysctl=net.ipv4.conf.all.src_valid_mark=1 \
+    --sysctl=net.ipv4.ip_forward=1 \
+    --restart unless-stopped \
+    ghcr.io/wg-easy/wg-easy
 
     if docker ps | grep -q "wg-easy"; then
         echo "${BLUE_BG}${BLACK_FG}wg-easy container is running. Continuing...${RESET}"
