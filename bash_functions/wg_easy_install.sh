@@ -16,7 +16,7 @@ wg_easy_install() {
     -e WG_DEFAULT_ADDRESS=10.0.0.x \
     -v /root/.wg-easy:/etc/wireguard \
     -p 8080:8080/udp \
-    -p 51821:51821/tcp \
+    -p 8081:51821/tcp \
     --cap-add=NET_ADMIN \
     --cap-add=SYS_MODULE \
     --sysctl=net.ipv4.conf.all.src_valid_mark=1 \
