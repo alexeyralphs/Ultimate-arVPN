@@ -14,7 +14,7 @@ wg_easy_install() {
 
     docker run -d --name=wg-easy \
     -e WG_HOST=$WEB_ADDRESS \
-    -e PASSWORD_HASH=$wg_password_hash \
+    -e PASSWORD_HASH=$current_wg_password_hash \
     -e WG_PORT=8080 \
     -e WG_DEFAULT_ADDRESS=10.0.0.x \
     -v /root/.wg-easy:/etc/wireguard \
