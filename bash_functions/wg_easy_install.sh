@@ -9,12 +9,9 @@ wg_easy_install() {
     docker stop wg-easy 2> /dev/null
     docker rm wg-easy 2> /dev/null
 
-    wg_password_hash=$(docker run --rm ghcr.io/wg-easy/wg-easy wgpw "$PASSWORD")
-    current_wg_password_hash=$(echo $wg_password_hash | sed "s/^[^']*//")
-
     docker run -d --name=wg-easy \
     -e WG_HOST=$WEB_ADDRESS \
-    -e PASSWORD_HASH=$current_wg_password_hash \
+    -e PASSWORD_HASH="$(docker run --rm ghcr.io/wg-easy/wg-easy wgpw "$PASSWORD" | awk -F"'" '{print $2 ? $2 : $1}')" \
     -e WG_PORT=8080 \
     -e WG_DEFAULT_ADDRESS=10.0.0.x \
     -v /root/.wg-easy:/etc/wireguard \
