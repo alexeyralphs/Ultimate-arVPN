@@ -12,7 +12,7 @@ password_generator() {
         do SYMBOLS=$SYMBOLS$SYMBOL
     done
 
-    SYMBOLS=$SYMBOLS'!@#%*()?/\[]{}-+_=<>.'
+    SYMBOLS=$SYMBOLS'@#%*()?/\[]{}-+_=<>.'
 
     PWD_LENGTH=16
     PASSWORD=""
