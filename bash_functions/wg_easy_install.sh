@@ -31,13 +31,7 @@ wg_easy_install() {
         exit 1
     fi
 
-    while iptables -D FORWARD -p tcp --dport 51821 -j DROP 2>/dev/null; do
-        echo "REMOVED iptables -I FORWARD -p tcp --dport 51821 -j DROP"
-    done
-    iptables -I FORWARD -p tcp --dport 51821 -j DROP
-    echo "APPLIED iptables -I FORWARD -p tcp --dport 51821 -j DROP"
-
-        sudo apt -o Dpkg::Options::="--force-confold" install ipset -y
+    sudo apt -o Dpkg::Options::="--force-confold" install ipset -y
     if command -v ipset &>/dev/null; then
         echo "${BLUE_BG}${BLACK_FG}ipset installed.${RESET}"
     else
@@ -54,6 +48,9 @@ wg_easy_install() {
         echo "${BLUE_BG}${BLACK_FG}dnsmasq not found, exiting..."
         exit 1
     fi
+    echo "ipset=/youtube.com/vpn" > /etc/dnsmasq.d/vpn.conf
+    echo "ipset=/google.com/vpn" >> /etc/dnsmasq.d/vpn.conf
+    echo "port=0" > /etc/dnsmasq.conf
     systemctl restart dnsmasq
 
     echo "Wireguard GUI: http://$WEB_ADDRESS/wireguard | Password: $PASSWORD" | sudo tee credentials.txt > /dev/null
