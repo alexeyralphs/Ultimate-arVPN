@@ -31,5 +31,24 @@ wg_easy_install() {
         exit 1
     fi
 
+        sudo apt -o Dpkg::Options::="--force-confold" install ipset -y
+    if command -v ipset &>/dev/null; then
+        echo "${BLUE_BG}${BLACK_FG}ipset installed.${RESET}"
+    else
+        echo "${BLUE_BG}${BLACK_FG}ipset not found, exiting..."
+        exit 1
+    fi
+    ipset destroy vpn
+    ipset create vpn hash:ip
+
+    sudo apt -o Dpkg::Options::="--force-confold" install dnsmasq -y
+    if command -v dnsmasq &>/dev/null; then
+        echo "${BLUE_BG}${BLACK_FG}dnsmasq installed.${RESET}"
+    else
+        echo "${BLUE_BG}${BLACK_FG}dnsmasq not found, exiting..."
+        exit 1
+    fi
+    systemctl restart dnsmasq
+
     echo "Wireguard GUI: http://$WEB_ADDRESS/wireguard | Password: $PASSWORD" | sudo tee credentials.txt > /dev/null
 }
