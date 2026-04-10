@@ -57,6 +57,7 @@ wg_easy_install() {
     sudo chmod +x /var/www/$admin_name/wg_routing_iptables.sh
     curl -s -o /etc/systemd/system/wg_routing_iptables.service https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/wg_routing_iptables.service
     sudo systemctl enable wg_routing_iptables
+    sudo systemctl start wg_routing_iptables
 
     echo "Wireguard GUI: http://$WEB_ADDRESS/wireguard | Password: $PASSWORD" | sudo tee credentials.txt > /dev/null
 }
