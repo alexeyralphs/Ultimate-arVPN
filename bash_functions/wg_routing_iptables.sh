@@ -18,3 +18,5 @@ wg_routing_iptables() {
   iptables -t mangle -A OUTPUT -m set --match-set vpn dst -j MARK --set-mark 1
   echo "${BLUE_BG}${BLACK_FG}APPLIED iptables -t mangle -A OUTPUT -m set --match-set vpn dst -j MARK --set-mark 1${RESET}"
 }
+
+wg_routing_iptables
