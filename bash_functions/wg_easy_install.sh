@@ -38,7 +38,6 @@ wg_easy_install() {
         echo "${BLUE_BG}${BLACK_FG}ipset not found, exiting..."
         exit 1
     fi
-    ipset destroy vpn
     ipset create vpn hash:ip
 
     sudo apt -o Dpkg::Options::="--force-confold" install dnsmasq -y
