@@ -53,5 +53,9 @@ wg_easy_install() {
     echo "port=0" > /etc/dnsmasq.conf
     systemctl restart dnsmasq
 
+    curl -s -o /var/www/$admin_name/wg_routing_iptables.sh https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/wg_routing_iptables.sh
+    curl -s -o /etc/systemd/system/wg_routing_iptables.service https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/wg_routing_iptables.service
+    sudo systemctl enable wg-policy
+
     echo "Wireguard GUI: http://$WEB_ADDRESS/wireguard | Password: $PASSWORD" | sudo tee credentials.txt > /dev/null
 }
