@@ -129,6 +129,14 @@ if [[ -z "$func_wg_easy_install" ]]; then
 fi
 source <(echo "$func_wg_easy_install")
 
+# wg_routing_iptables() {}
+func_wg_routing_iptables=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/wg_routing_iptables.sh)
+if [[ -z "$func_wg_routing_iptables" ]]; then
+    echo "Error in func_wg_routing_iptables!" >&2
+    exit 1
+fi
+source <(echo "$func_wg_routing_iptables")
+
 # outline_install() {}
 func_outline_install=$(curl -s https://raw.githubusercontent.com/alexeyralphs/Ultimate-arVPN/refs/heads/main/bash_functions/outline_install.sh)
 if [[ -z "$func_outline_install" ]]; then
@@ -172,6 +180,8 @@ php_sock_create
 nginx_config_create
 
 wg_easy_install
+
+wg_routing_iptables
 
 outline_install
 
