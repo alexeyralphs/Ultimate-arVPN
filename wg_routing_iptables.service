@@ -1,0 +1,11 @@
+[Unit]
+Description=WireGuard policy routing
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/var/www/vpnadmin/wg_routing_iptables.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
