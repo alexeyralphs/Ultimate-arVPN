@@ -31,6 +31,12 @@ wg_easy_install() {
         exit 1
     fi
 
+    while iptables -D FORWARD -p tcp --dport 51821 -j DROP 2>/dev/null; do
+        echo "REMOVED iptables -I FORWARD -p tcp --dport 51821 -j DROP"
+    done
+    iptables -I FORWARD -p tcp --dport 51821 -j DROP
+    echo "APPLIED iptables -I FORWARD -p tcp --dport 51821 -j DROP"
+
         sudo apt -o Dpkg::Options::="--force-confold" install ipset -y
     if command -v ipset &>/dev/null; then
         echo "${BLUE_BG}${BLACK_FG}ipset installed.${RESET}"
