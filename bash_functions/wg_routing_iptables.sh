@@ -6,6 +6,8 @@ BLACK_FG=$(tput setaf 0)
 RESET=$(tput sgr0)
 
 wg_routing_iptables() {
+  ipset create vpn hash:ip
+
   while iptables -D FORWARD -p tcp --dport 51821 -j DROP 2>/dev/null; do
     echo "${BLUE_BG}${BLACK_FG}REMOVED iptables -I FORWARD -p tcp --dport 51821 -j DROP${RESET}"
   done
